@@ -25,6 +25,10 @@
   --radius-xl: 0.9rem;
   --radius-2xl: 1.15rem;
   --radius-3xl: 1.6rem;
+  /* Shared overlay layers: navigation 500-700, transient UI 840-850, then overlays. */
+  --z-overlay-popover: 1000;
+  --z-overlay-modal: 1100;
+  --z-overlay-toast: 1200;
 }
 
 .admin-app {

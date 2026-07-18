@@ -7,8 +7,9 @@
  * meets the 44px touch-target minimum.
  */
 
-import React, { useEffect, useId, useMemo, useRef, useState } from "react";
+import React, { useEffect, useId, useMemo, useState } from "react";
 import Icon from "@/components/Icon";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { useLang } from "@/lib/i18n";
 import { dateToLocalDateKey, formatLocalDateKey, parseLocalDateKey } from "@/lib/health-format";
 
@@ -196,8 +197,6 @@ function LocalDateInput({
   id,
 }: BaseProps & { id: string }) {
   const { lang, t } = useLang();
-  const rootRef = useRef<HTMLDivElement>(null);
-  const triggerRef = useRef<HTMLButtonElement>(null);
   const selected = parseLocalDateKey(value);
   const [open, setOpen] = useState(false);
   const [viewDate, setViewDate] = useState(() => selected ?? startOfMonth(new Date()));
@@ -213,29 +212,9 @@ function LocalDateInput({
     if (nextSelected) setViewDate(startOfMonth(nextSelected));
   }, [value]);
 
-  useEffect(() => {
-    if (!open) return;
-    const onPointerDown = (event: PointerEvent) => {
-      if (!rootRef.current?.contains(event.target as Node)) setOpen(false);
-    };
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setOpen(false);
-        triggerRef.current?.focus();
-      }
-    };
-    document.addEventListener("pointerdown", onPointerDown);
-    document.addEventListener("keydown", onKeyDown);
-    return () => {
-      document.removeEventListener("pointerdown", onPointerDown);
-      document.removeEventListener("keydown", onKeyDown);
-    };
-  }, [open]);
-
   const choose = (day: Date) => {
     onChange(dateToLocalDateKey(day));
     setOpen(false);
-    requestAnimationFrame(() => triggerRef.current?.focus());
   };
 
   const displayValue = value ? formatLocalDateKey(value) : t("اختر التاريخ", "Choose date");
@@ -243,35 +222,31 @@ function LocalDateInput({
   return (
     <Frame id={id} label={label} hint={hint} error={error} required={required}>
       {({ describedBy }) => (
-        <div ref={rootRef} className="relative min-w-0">
-          <button
-            ref={triggerRef}
-            id={id}
-            type="button"
-            aria-label={`${label}: ${displayValue}`}
-            aria-describedby={describedBy}
-            aria-expanded={open}
-            aria-controls={panelId}
-            aria-haspopup="dialog"
-            onClick={() => setOpen((current) => !current)}
-            className={`${CONTROL} ${borderClass(error)} flex items-center justify-between gap-3 text-start`}
-          >
-            <span className="flex min-w-0 items-center gap-3">
-              <span className="icon-pad h-8 w-8 shrink-0"><Icon name="calendar" className="h-4 w-4" /></span>
-              <span className={`truncate ${value ? "font-semibold text-navy-800" : "text-navy-400"}`}>
-                {displayValue}
-              </span>
-            </span>
-            <Icon name="chevron" className={`h-4 w-4 shrink-0 text-navy-400 transition-transform ${open ? "-rotate-90" : "rotate-90"}`} />
-          </button>
-          {open && (
-            <div
-              id={panelId}
-              role="dialog"
-              aria-modal="false"
-              aria-labelledby={id}
-              className="absolute top-full z-[80] mt-2 w-[min(22rem,calc(100vw-2rem))] max-w-[calc(100vw-2rem)] rounded-3xl border border-navy-100 bg-white p-4 shadow-float ltr:left-0 rtl:right-0"
+        <Popover open={open} onOpenChange={setOpen}>
+          <PopoverTrigger asChild>
+            <button
+              id={id}
+              type="button"
+              data-overlay-trigger="popover"
+              aria-label={`${label}: ${displayValue}`}
+              aria-describedby={describedBy}
+              aria-controls={panelId}
+              className={`${CONTROL} ${borderClass(error)} flex items-center justify-between gap-3 text-start`}
             >
+              <span className="flex min-w-0 items-center gap-3">
+                <span className="icon-pad h-8 w-8 shrink-0"><Icon name="calendar" className="h-4 w-4" /></span>
+                <span className={`truncate ${value ? "font-semibold text-navy-800" : "text-navy-400"}`}>
+                  {displayValue}
+                </span>
+              </span>
+              <Icon name="chevron" className={`h-4 w-4 shrink-0 text-navy-400 transition-transform ${open ? "-rotate-90" : "rotate-90"}`} />
+            </button>
+          </PopoverTrigger>
+          <PopoverContent
+            id={panelId}
+            aria-label={label}
+            className="w-[min(22rem,calc(100vw-2rem))] max-h-[calc(100dvh-2rem)] max-w-[calc(100vw-2rem)] overflow-y-auto rounded-3xl border-navy-100 p-4"
+          >
               <div className="mb-4 flex items-center justify-between gap-3">
                 <button type="button" onClick={() => setViewDate((current) => addMonths(current, -1))} aria-label={t("الشهر السابق", "Previous month")} className="flex h-10 w-10 items-center justify-center rounded-xl border border-navy-200 text-navy-600 transition hover:border-brand-300 hover:text-brand-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400">
                   <Icon name="chevron" className="h-4 w-4 rotate-180 rtl:rotate-0" />
@@ -300,10 +275,9 @@ function LocalDateInput({
                   </button>
                 ) : <span key={`empty-${index}`} className="h-10" aria-hidden="true" />)}
               </div>
-              {value && <button type="button" onClick={() => { onChange(""); setOpen(false); requestAnimationFrame(() => triggerRef.current?.focus()); }} className="btn-ghost mt-3 w-full text-xs">{t("مسح التاريخ", "Clear date")}</button>}
-            </div>
-          )}
-        </div>
+              {value && <button type="button" onClick={() => { onChange(""); setOpen(false); }} className="btn-ghost mt-3 w-full text-xs">{t("مسح التاريخ", "Clear date")}</button>}
+          </PopoverContent>
+        </Popover>
       )}
     </Frame>
   );

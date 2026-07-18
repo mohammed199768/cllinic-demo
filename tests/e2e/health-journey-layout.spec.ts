@@ -1,4 +1,4 @@
-import { expect, test, type Page } from '@playwright/test';
+import { expect, test, type Locator, type Page } from '@playwright/test';
 
 const STORAGE_KEY = 'ourClinic.healthCompanion.v1';
 
@@ -67,6 +67,71 @@ function pageCount(pdf: Buffer) {
   return (pdf.toString('latin1').match(/\/Type\s*\/Page\b/g) ?? []).length;
 }
 
+async function expectPickerAbovePageContent(page: Page, trigger: Locator) {
+  await trigger.scrollIntoViewIfNeeded();
+  await trigger.click();
+
+  const overlay = page.locator('[data-overlay-layer="popover"]');
+  await expect(overlay).toBeVisible();
+  await overlay.evaluate(async (element) => {
+    await Promise.all(element.getAnimations().map((animation) => animation.finished));
+  });
+
+  const geometry = await overlay.evaluate((element) => {
+    const rect = element.getBoundingClientRect();
+    const viewportWidth = document.documentElement.clientWidth;
+    const viewportHeight = document.documentElement.clientHeight;
+    const sampleX = rect.left + rect.width / 2;
+    const sampleY = rect.top + rect.height / 2;
+    const topElement = document.elementFromPoint(sampleX, sampleY);
+    const trigger = document.querySelector('[data-overlay-trigger="popover"][data-state="open"]');
+    const underlyingContent = [...document.querySelectorAll('.card-clinical, button, input, select, textarea, [data-health-section]')].filter((candidate) =>
+      !element.contains(candidate) && candidate !== trigger,
+    );
+    const overlappingContent = underlyingContent.find((candidate) => {
+      const candidateRect = candidate.getBoundingClientRect();
+      return candidateRect.width > 1 && candidateRect.height > 1 && candidateRect.left < rect.right && candidateRect.right > rect.left && candidateRect.top < rect.bottom && candidateRect.bottom > rect.top;
+    });
+
+    let overlapHitIsPicker = false;
+    if (overlappingContent) {
+      const contentRect = overlappingContent.getBoundingClientRect();
+      const left = Math.max(rect.left, contentRect.left);
+      const right = Math.min(rect.right, contentRect.right);
+      const top = Math.max(rect.top, contentRect.top);
+      const bottom = Math.min(rect.bottom, contentRect.bottom);
+      const overlapElement = document.elementFromPoint((left + right) / 2, (top + bottom) / 2);
+      overlapHitIsPicker = !!overlapElement?.closest('[data-overlay-layer="popover"]');
+    }
+
+    return {
+      insideBodyPortal: document.body.contains(element) && !element.closest('.card-clinical'),
+      withinViewport: rect.left >= -1 && rect.right <= viewportWidth + 1 && rect.top >= -1 && rect.bottom <= viewportHeight + 1,
+      centerHitIsPicker: !!topElement?.closest('[data-overlay-layer="popover"]'),
+      overlapsPageContent: !!overlappingContent,
+      overlapHitIsPicker,
+      overflow: document.documentElement.scrollWidth - viewportWidth,
+    };
+  });
+
+  expect(geometry.insideBodyPortal).toBe(true);
+  expect(geometry.withinViewport).toBe(true);
+  expect(geometry.centerHitIsPicker).toBe(true);
+  expect(geometry.overlapsPageContent).toBe(true);
+  expect(geometry.overlapHitIsPicker).toBe(true);
+  expect(geometry.overflow).toBeLessThanOrEqual(1);
+
+  await overlay.locator('button[aria-label*="/"]').first().click();
+  await expect(overlay).toBeHidden();
+  await expect(trigger).toBeFocused();
+
+  await trigger.click();
+  await expect(overlay).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(overlay).toBeHidden();
+  await expect(trigger).toBeFocused();
+}
+
 test('health journey date picker displays stable placeholders and stores local date keys', async ({ page }) => {
   await setLocaleAndSeed(page, 'en');
   await page.goto('/health-journey/report');
@@ -84,6 +149,52 @@ test('health journey date picker displays stable placeholders and stores local d
   await arabic.goto('/health-journey/report');
   await expect(arabic.locator('button').filter({ hasText: 'اختر التاريخ' }).first()).toBeVisible();
   await arabic.close();
+});
+
+test('health journey date overlays portal above cards in Arabic and English', async ({ browser }) => {
+  test.setTimeout(180_000);
+  const pickerRoutes = [
+    '/health-journey/blood-pressure',
+    '/health-journey/blood-glucose',
+    '/health-journey/visit-preparation',
+    '/health-journey/report',
+  ];
+
+  for (const locale of ['en', 'ar'] as const) {
+    const context = await browser.newContext();
+    const page = await context.newPage();
+    await setLocaleAndSeed(page, locale);
+
+    for (const viewport of [
+      { width: 390, height: 844 },
+      { width: 360, height: 800 },
+      { width: 768, height: 1024 },
+      { width: 1024, height: 768 },
+      { width: 1440, height: 900 },
+      { width: 1536, height: 864 },
+    ]) {
+      await page.setViewportSize(viewport);
+      for (const route of pickerRoutes) {
+        await page.goto(route);
+        const trigger = page.locator('.health-print button[aria-haspopup="dialog"]').first();
+        await expect(trigger, `${locale} ${route} picker trigger`).toBeVisible();
+        await expectPickerAbovePageContent(page, trigger);
+      }
+    }
+
+    await page.goto('/health-journey/medications');
+    await expect(page.locator('.health-print button[aria-haspopup="dialog"]')).toHaveCount(0);
+
+    await page.goto('/health-journey/visit-preparation');
+    const timeFields = page.locator('fieldset').filter({ has: page.locator('select') }).first().locator('select');
+    await expect(timeFields).toHaveCount(3);
+    await timeFields.nth(0).selectOption('9');
+    await timeFields.nth(1).selectOption('30');
+    await timeFields.nth(2).selectOption('pm');
+    await expect(timeFields.nth(2)).toHaveValue('pm');
+
+    await context.close();
+  }
 });
 
 test('health journey pages do not horizontally overflow across key viewports', async ({ page }) => {

@@ -88,7 +88,7 @@ export function PickerDialog({ open, title, locale, triggerRef, onClose, childre
 
   return createPortal(
     <div
-      className={cx('fixed inset-0 z-[100]', placement.mobile ? 'flex items-end bg-ink/40 p-2 backdrop-blur-[2px]' : 'bg-transparent')}
+      className={cx('fixed inset-0 z-[var(--z-overlay-modal)]', placement.mobile ? 'flex items-end bg-ink/40 p-2 backdrop-blur-[2px]' : 'bg-transparent')}
       onPointerDown={(event) => { if (event.target === event.currentTarget) onClose(); }}
     >
       <div
