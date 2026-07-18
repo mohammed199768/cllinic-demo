@@ -101,8 +101,8 @@ export default function BloodPressureView() {
   return (
     <HealthToolShell icon="heart-pulse" title={{ ar: "سجل ضغط الدم", en: "Blood Pressure Log" }} helper={TOOL_GUIDES.bloodPressure.helper}>
       <div className="health-print">
-        <div className="screen-only grid gap-8 lg:grid-cols-[minmax(0,1fr)_21rem]">
-          <div className="space-y-8">
+        <div className="screen-only grid min-w-0 gap-8 lg:grid-cols-[minmax(0,1fr)_21rem]">
+          <div className="min-w-0 space-y-8">
             <form onSubmit={submit} className="card-clinical rounded-3xl p-5 sm:p-7" noValidate>
               <div className="flex items-center justify-between gap-3"><h2 className="text-h3 font-bold text-navy-900">{editingId ? t("تعديل القراءة", "Edit reading") : t("أضف قراءة", "Add a reading")}</h2>{editingId && <button type="button" onClick={reset} className="btn-ghost px-4">{t("إلغاء", "Cancel")}</button>}</div>
               <div className="mt-6 grid gap-5 sm:grid-cols-2">

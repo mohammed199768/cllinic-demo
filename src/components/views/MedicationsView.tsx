@@ -53,11 +53,11 @@ export default function MedicationsView() {
   return (
     <HealthToolShell icon="pill" title={{ ar: "أدويتي", en: "My Medications" }} helper={TOOL_GUIDES.medications.helper}>
       <div className="health-print">
-        <div className="screen-only grid gap-8 lg:grid-cols-[minmax(0,1fr)_21rem]">
-          <div className="space-y-8">
-            <form onSubmit={submit} noValidate className="card-clinical rounded-3xl p-5 sm:p-7">
+        <div className="screen-only grid min-w-0 gap-8 lg:grid-cols-[minmax(0,1fr)_21rem]">
+          <div className="min-w-0 space-y-8">
+            <form onSubmit={submit} noValidate data-health-section="medication-entry" className="card-clinical rounded-3xl p-5 sm:p-7">
               <div className="flex items-center justify-between gap-3"><h2 className="text-h3 font-bold text-navy-900">{editingId ? t("تعديل الدواء", "Edit medication") : t("أضف دواء", "Add medication")}</h2>{editingId && <button type="button" onClick={reset} className="btn-ghost px-4">{t("إلغاء", "Cancel")}</button>}</div>
-              <div className="mt-6 grid gap-5 sm:grid-cols-2">
+              <div className="mt-6 grid min-w-0 grid-cols-[minmax(0,1fr)] gap-5 sm:grid-cols-2">
                 <TextInput label={t("اسم الدواء", "Medication name")} value={form.name} onChange={set("name")} error={error("name")} required />
                 <TextInput label={t("عدد المرات", "Frequency")} hint={t("اكتبها كما وصفها لك طبيبك", "Write it exactly as prescribed") } value={form.frequency} onChange={set("frequency")} error={error("frequency")} required />
                 <TextInput label={t("الجرعة (اختياري)", "Dose (optional)")} value={form.dose} onChange={set("dose")} />
@@ -69,9 +69,9 @@ export default function MedicationsView() {
               </div>
               <div className="mt-6 flex flex-wrap items-center gap-3"><button type="submit" className="btn-primary"><Icon name="save" className="h-4 w-4" />{editingId ? t("حفظ التعديل", "Save changes") : t("إضافة إلى القائمة", "Add to list")}</button><span aria-live="polite" className="text-sm font-semibold text-mint-500">{status}</span></div>
             </form>
-            <section className="card-clinical rounded-3xl p-5 sm:p-7">
+            <section data-health-section="medication-list" className="card-clinical rounded-3xl p-5 sm:p-7">
               <div className="flex flex-wrap items-end justify-between gap-3"><div><h2 className="text-h3 font-bold text-navy-900">{t("قائمة الأدوية", "Medication list")}</h2><p className="mt-1 text-sm text-navy-500">{t("قسّم القائمة إلى أدوية نشطة وغير نشطة.", "The list is grouped into active and inactive medications.")}</p></div><button type="button" onClick={printPage} className="btn-ghost"><Icon name="printer" className="h-4 w-4" />{t("طباعة القائمة", "Print list")}</button></div>
-              {!ready ? <p className="mt-6 text-sm text-navy-500">{t("جارٍ تحميل بيانات الجهاز…", "Loading device data…")}</p> : store.medications.length === 0 ? <div className="mt-6"><EmptyState icon="pill" title={t("قائمتك فارغة", "Your list is empty")} body={t("أضف دواءً كما هو مكتوب على العبوة أو الوصفة.", "Add a medication exactly as written on its package or prescription.")} /></div> : <div className="mt-6 space-y-8"><MedicationGroup title={t("الأدوية النشطة", "Active medications")} items={active} onEdit={edit} onDelete={setDeleteTarget} onToggle={(item) => updateMedication(item.id, { active: !item.active })} /><MedicationGroup title={t("أدوية غير نشطة", "Inactive medications")} items={inactive} onEdit={edit} onDelete={setDeleteTarget} onToggle={(item) => updateMedication(item.id, { active: !item.active })} /></div>}
+              {!ready ? <p className="mt-6 text-sm text-navy-500">{t("جارٍ تحميل بيانات الجهاز…", "Loading device data…")}</p> : store.medications.length === 0 ? <div className="mt-6"><EmptyState icon="pill" title={t("قائمتك فارغة", "Your list is empty")} body={t("أضف دواءً كما هو مكتوب على العبوة أو الوصفة.", "Add a medication exactly as written on its package or prescription.")} /></div> : <div className="mt-6 min-w-0 space-y-8"><MedicationGroup title={t("الأدوية النشطة", "Active medications")} items={active} onEdit={edit} onDelete={setDeleteTarget} onToggle={(item) => updateMedication(item.id, { active: !item.active })} /><MedicationGroup title={t("أدوية غير نشطة", "Inactive medications")} items={inactive} onEdit={edit} onDelete={setDeleteTarget} onToggle={(item) => updateMedication(item.id, { active: !item.active })} /></div>}
             </section>
             <LocalDataControls sectionLabel={{ ar: "قائمة الأدوية", en: "medication list" }} onExportCsv={exportCsv} onExportJson={() => downloadJson(`our-clinic-medications-${fileDateStamp()}.json`, JSON.stringify(store.medications, null, 2))} onClearSection={() => clearCollection("medications")} />
           </div><ToolGuidePanel guide={TOOL_GUIDES.medications} />

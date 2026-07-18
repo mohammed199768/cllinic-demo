@@ -33,8 +33,8 @@ export default function PatientResourcesView() {
       }}
     >
       <div className="health-print">
-        <div className="screen-only">
-          <div className="max-w-3xl">
+        <div className="screen-only min-w-0">
+          <div className="max-w-3xl min-w-0">
             <p className="text-sm leading-relaxed text-navy-600">
               {t(
                 "اختر نموذجًا ثم اطبعه. من نافذة الطباعة يمكنك اختيار «حفظ كملف PDF». لا تُرسل أي معلومات إلى الموقع عند الطباعة.",
@@ -42,11 +42,11 @@ export default function PatientResourcesView() {
               )}
             </p>
           </div>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid min-w-0 grid-cols-[minmax(0,1fr)] gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {PATIENT_RESOURCES.map((resource) => (
               <article
                 key={resource.slug}
-                className="flex min-h-72 flex-col rounded-3xl border border-navy-100 bg-white p-5 shadow-card"
+                className="flex min-h-72 min-w-0 flex-col rounded-3xl border border-navy-100 bg-white p-5 shadow-card"
               >
                 <div className="flex items-start justify-between gap-3">
                   <span className="icon-pad h-11 w-11">
