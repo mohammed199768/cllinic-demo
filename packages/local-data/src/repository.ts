@@ -41,9 +41,8 @@ export class ClinicRepository {
       const booking: Booking = {
         id: this.uid('booking'), publicReference: ref('BK', data.counters.booking), fullName: input.fullName.trim(), phone: input.phone.trim(),
         requestedService: input.requestedService.trim(), requestedDate: input.requestedDate, requestedTime: input.requestedTime,
-        durationMinutes: input.durationMinutes ?? 30, location: input.location ?? 'clinic', relation: input.relation, ageGroup: input.ageGroup,
-        requestedGender: input.requestedGender, insurance: input.insurance, urgency: input.urgency, address: input.address?.trim() || undefined,
-        arrivalNotes: input.arrivalNotes?.trim() || undefined, source: input.source ?? 'PUBLIC_WEBSITE',
+        durationMinutes: input.durationMinutes ?? 30, ageGroup: input.ageGroup,
+        requestedGender: input.requestedGender, insurance: input.insurance, source: input.source ?? 'PUBLIC_WEBSITE',
         status: 'NEW', message: input.message?.trim() || undefined, internalNotes: input.internalNotes?.trim() || undefined, createdAt: stamp, updatedAt: stamp,
       };
       data.bookings.unshift(booking);

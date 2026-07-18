@@ -16,7 +16,6 @@ const CAT_LABEL: Record<string, Bi> = {
   diabetes: { ar: "السكري والضغط", en: "Diabetes & BP" },
   vitamins: { ar: "الفيتامينات", en: "Vitamins" },
   emergency: { ar: "الطوارئ", en: "Emergency" },
-  home: { ar: "الزيارات المنزلية", en: "Home Visits" },
   lab: { ar: "الفحوصات", en: "Lab Tests" },
 };
 

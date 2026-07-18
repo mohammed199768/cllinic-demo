@@ -14,7 +14,6 @@ const CATS = [
   { id: "diabetes", ar: "السكري والضغط", en: "Diabetes & BP" },
   { id: "vitamins", ar: "الفيتامينات", en: "Vitamins" },
   { id: "emergency", ar: "الطوارئ", en: "Emergency" },
-  { id: "home", ar: "الزيارات المنزلية", en: "Home Visits" },
   { id: "lab", ar: "الفحوصات", en: "Lab Tests" },
 ];
 

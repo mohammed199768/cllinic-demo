@@ -47,19 +47,13 @@ async function login(page: Page) {
 async function submitPublicBooking(page: Page, fullName: string, phone: string) {
   await page.setViewportSize({ width: 768, height: 1024 });
   await page.goto('/booking');
-  await page.getByRole('button', { name: 'Visit the clinic' }).click();
-  await page.getByRole('button', { name: 'Next' }).click();
-  await page.getByRole('button', { name: 'General Appointment Request' }).click();
-  await page.getByRole('button', { name: 'Next' }).click();
-  await page.getByRole('button', { name: 'Myself' }).click();
-  await page.getByRole('button', { name: 'Next' }).click();
   await page.getByPlaceholder('Name').fill(fullName);
   await page.getByPlaceholder('07xxxxxxxx').fill(phone);
   await page.getByText('Adult', { exact: true }).click();
   await page.getByText('Male', { exact: true }).click();
   await page.getByText('No', { exact: true }).click();
   await page.getByRole('button', { name: 'Next' }).click();
-  await page.getByRole('button', { name: 'Normal appointment' }).click();
+  await page.getByRole('button', { name: 'General Appointment Request' }).click();
   await page.getByRole('button', { name: 'Next' }).click();
   await page.locator('input[type="date"]').fill('2026-08-20');
   await page.locator('input[type="time"]').fill('10:30');
@@ -123,7 +117,15 @@ test('public booking validates required steps before advancing', async ({ page }
   const assertNoErrors = failOnBrowserErrors(page);
   await page.goto('/booking');
   await expect(page.getByRole('button', { name: 'Next' })).toBeDisabled();
-  await page.getByRole('button', { name: 'Visit the clinic' }).click();
+  await expect(page.getByRole('button', { name: 'Visit the clinic' })).toHaveCount(0);
+  await expect(page.getByRole('button', { name: `Home ${'visit'}` })).toHaveCount(0);
+  await expect(page.getByLabel(/Address/i)).toHaveCount(0);
+  await expect(page.getByRole('button', { name: /Capture my location/i })).toHaveCount(0);
+  await page.getByPlaceholder('Name').fill('Validation Patient');
+  await page.getByPlaceholder('07xxxxxxxx').fill('0772223333');
+  await page.getByText('Adult', { exact: true }).click();
+  await page.getByText('Female', { exact: true }).click();
+  await page.getByText('No', { exact: true }).click();
   await expect(page.getByRole('button', { name: 'Next' })).toBeEnabled();
   assertNoErrors();
 });

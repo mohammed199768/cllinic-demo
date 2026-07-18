@@ -49,7 +49,6 @@ export const metadata: Metadata = {
   keywords: [
     "عيادتنا",
     "نموذج عيادة تجريبي عمّان",
-    "زيارات منزلية عمان",
     "OurClinic",
     "Amman clinic",
     "clinic demo Amman",

@@ -34,13 +34,6 @@
         "ar": "طوارئ",
         "en": "Emergency"
       }
-    },
-    {
-      "id": "home",
-      "label": {
-        "ar": "زيارات",
-        "en": "Home"
-      }
     }
   ],
   "stories": [
@@ -79,15 +72,6 @@
         "en": "Emergency"
       },
       "color": "#FF7A59"
-    },
-    {
-      "id": "c5",
-      "category": "home",
-      "title": {
-        "ar": "زيارة منزلية",
-        "en": "Home Visit"
-      },
-      "color": "#2BC4A0"
     },
     {
       "id": "c6",
@@ -153,19 +137,6 @@
       }
     },
     {
-      "id": "r5",
-      "category": "home",
-      "color": "#E6F7F0",
-      "title": {
-        "ar": "تجهيز للزيارة",
-        "en": "Prepare for the Visit"
-      },
-      "body": {
-        "ar": "جهّز قائمة الأدوية الحالية ومكاناً مضيئاً مريحاً قبل وصول فريق الزيارة المنزلية.",
-        "en": "Prepare a list of current medicines and a bright, comfortable spot before the home visit team arrives."
-      }
-    },
-    {
       "id": "r6",
       "category": "vitamins",
       "color": "#EFEAFF",
@@ -202,19 +173,6 @@
       "body": {
         "ar": "قِس في وقت هادئ بعد الراحة، وقلّل الملح تدريجياً، والتزم بأدويتك.",
         "en": "Measure when calm after resting, reduce salt gradually, and stick to your medicines."
-      }
-    },
-    {
-      "id": "r9",
-      "category": "home",
-      "color": "#E6F7F0",
-      "title": {
-        "ar": "رعاية كبار السن",
-        "en": "Senior Care"
-      },
-      "body": {
-        "ar": "تابع الضغط والسكر، وراقب التغذية والترطيب وأي تغيّر في المزاج أو الذاكرة.",
-        "en": "Track pressure and sugar, watch nutrition, hydration, and any change in mood or memory."
       }
     },
     {

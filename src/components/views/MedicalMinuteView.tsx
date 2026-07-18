@@ -20,7 +20,6 @@ const CAT_PHOTO: Record<string, string> = {
   chronic: CLINIC_PHOTOS.photo_05.src,
   vitamins: CLINIC_PHOTOS.photo_07.src,
   emergency: CLINIC_PHOTOS.photo_01.src,
-  home: CLINIC_PHOTOS.photo_04.src,
 };
 const catPhoto = (c: string) => CAT_PHOTO[c] ?? CLINIC_PHOTOS.photo_03.src;
 

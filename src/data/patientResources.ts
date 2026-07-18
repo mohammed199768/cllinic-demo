@@ -204,7 +204,7 @@ export const PATIENT_RESOURCES: PatientResource[] = [
     },
     intendedUse: {
       ar: "املأها في البيت بهدوء قبل يوم الموعد.",
-      en: "Fill it in calmly at home before appointment day.",
+      en: "Fill it in calmly before appointment day.",
     },
     version: "v1.0 · 2026",
     fields: [

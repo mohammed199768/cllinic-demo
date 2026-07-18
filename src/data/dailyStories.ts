@@ -107,33 +107,6 @@ export const DAILY_STORIES: DailyStory[] = [
     },
   },
   {
-    slug: "senior-home-care",
-    category: { ar: "الرعاية المنزلية", en: "Home care" },
-    title: { ar: "والدٌ يفضّل كرسيه قرب النافذة", en: "A Father Who Prefers His Chair by the Window" },
-    excerpt: {
-      ar: "صار الخروج للمركز رحلةً متعبة عليه، والعائلة أرادت أن يبقى قريباً في مكانه المألوف.",
-      en: "Going to the center became an exhausting trip, and his family wanted him to stay close, in his familiar place.",
-    },
-    readingTime: READ_2,
-    imageId: "photo_06",
-    body: {
-      ar: [
-        { kind: "p", text: "لكل بيتٍ زاوية يحبّها أهله. بالنسبة له كانت زاويته كرسيّاً قرب النافذة، يرى منه الشارع ويتابع تفاصيل النهار. لكن رحلة الخروج للمتابعة صارت تُنهكه قبل أن تبدأ." },
-        { kind: "sub", text: "الرعاية تأتي إليه" },
-        { kind: "p", text: "حين أصبحت الرعاية تصل إلى بيته، تغيّر شيءٌ لطيف: لم يعد يشعر أنه «حالة تُنقل»، بل إنساناً يُعتنى به في مكانه. وهذا الإحساس البسيط أراح قلوب من حوله بقدر ما أراحه." },
-        { kind: "takeaway", text: "الزيارة المنزلية مناسبة لكبار السن والحالات التي يصعب فيها الحضور للمركز. تجهيز قائمة الأدوية الحالية ومكانٍ مضيءٍ ومريح يجعل الزيارة أكثر فائدة." },
-        { kind: "p", text: "أحياناً لا تكون الرعاية الأفضل هي الأبعد، بل الأقرب إلى حيث يشعر الإنسان بالأمان." },
-      ],
-      en: [
-        { kind: "p", text: "Every home has a corner its people love. His was a chair by the window, where he watched the street and followed the details of the day. But the trip out for follow-up began to exhaust him before it even started." },
-        { kind: "sub", text: "Care that comes to him" },
-        { kind: "p", text: "When care reached his home, something gentle changed: he no longer felt like “a case being moved,” but a person being cared for in his own place. That simple feeling eased the hearts around him as much as it eased his own." },
-        { kind: "takeaway", text: "A home visit suits seniors and cases where coming to the center is difficult. Preparing a list of current medicines and a bright, comfortable spot makes the visit more useful." },
-        { kind: "p", text: "Sometimes the best care is not the farthest away, but the closest to where a person feels safe." },
-      ],
-    },
-  },
-  {
     slug: "fatigue-vitamins",
     category: { ar: "التغذية والفحوصات", en: "Nutrition & tests" },
     title: { ar: "تعبٌ لا يفسّره النوم", en: "A Tiredness Sleep Doesn't Explain" },
@@ -233,7 +206,7 @@ export const DAILY_STORIES: DailyStory[] = [
         { kind: "p", text: "أحياناً يكون الفرق بين قلقٍ طويل وراحةٍ سريعة مجرّد سؤالٍ طُرح في مكانه الصحيح." },
       ],
       en: [
-        { kind: "p", text: "A simple question about a medicine or a passing symptom stayed unanswered at home, growing with every “I wonder?” passed between family members." },
+        { kind: "p", text: "A simple question about a medicine or a passing symptom stayed unanswered, growing with every “I wonder?” passed between family members." },
         { kind: "sub", text: "Clarity at the right time" },
         { kind: "p", text: "A short consultation clarifies when watchful waiting is enough and when it's better to come in for assessment. The right information at the right time eases the whole family." },
         { kind: "takeaway", text: "A general medical consultation by phone or WhatsApp helps point you to the right step, but it does not replace a clinical examination when the situation calls for one." },

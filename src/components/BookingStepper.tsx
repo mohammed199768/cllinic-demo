@@ -21,28 +21,22 @@ const WEEKDAYS = {
 const TIME_SLOT_CONFIG = { start: "09:00", end: "22:00", stepMinutes: 30 } as const;
 
 type Form = {
-  location: "" | "clinic" | "home";
   service: string;
-  relation: "" | "myself" | "child" | "family";
   fullName: string;
   phone: string;
   ageGroup: "" | "child" | "adult" | "senior";
   gender: "" | "male" | "female";
   insurance: "" | "yes" | "no";
-  urgency: "" | "today" | "24h" | "normal";
   date: string;
   time: string;
-  geo: string;
-  address: string;
-  arrivalNotes: string;
   condition: string;
   website: string;
 };
 
 const initial: Form = {
-  location: "", service: "", relation: "", fullName: "", phone: "",
-  ageGroup: "", gender: "", insurance: "", urgency: "", date: "", time: "",
-  geo: "", address: "", arrivalNotes: "", condition: "", website: "",
+  service: "", fullName: "", phone: "",
+  ageGroup: "", gender: "", insurance: "", date: "", time: "",
+  condition: "", website: "",
 };
 
 export default function BookingStepper() {
@@ -56,13 +50,7 @@ export default function BookingStepper() {
   // Stable idempotency key per booking attempt (prevents duplicates on retry).
   const idemRef = useRef<string>("");
 
-  const isHome = form.location === "home";
-  const steps = useMemo(() => {
-    const base = ["location", "service", "relation", "patient", "urgency", "datetime"];
-    if (isHome) base.push("home");
-    base.push("condition", "review");
-    return base;
-  }, [isHome]);
+  const steps = ["patient", "service", "datetime", "condition", "review"];
   const current = steps[step];
   const set = (k: keyof Form, v: string) => setForm((f) => ({ ...f, [k]: v }));
 
@@ -73,29 +61,17 @@ export default function BookingStepper() {
 
   const canNext = (): boolean => {
     switch (current) {
-      case "location": return !!form.location;
       case "service": return !!form.service;
-      case "relation": return !!form.relation;
       case "patient": return !!form.fullName && form.phone.length >= 7 && !!form.ageGroup && !!form.gender && !!form.insurance;
-      case "urgency": return !!form.urgency;
       case "datetime": return !!form.date && !!form.time;
       default: return true;
     }
   };
 
-  const captureGeo = () => {
-    if (!navigator.geolocation) { setError(t("المتصفح لا يدعم تحديد الموقع", "Geolocation not supported")); return; }
-    navigator.geolocation.getCurrentPosition(
-      (pos) => set("geo", `${pos.coords.latitude.toFixed(6)}, ${pos.coords.longitude.toFixed(6)}`),
-      () => setError(t("تعذّر تحديد الموقع", "Could not get location")),
-      { enableHighAccuracy: true, timeout: 8000 }
-    );
-  };
-
   const summaryText = (s: BookingSummary) =>
     (lang === "ar"
-      ? `طلب حجز جديد\nرقم الحجز: ${s.bookingId}\nالاسم: ${s.firstName}\nالخدمة: ${s.service}\nالمكان: ${isHome ? "زيارة منزلية" : "زيارة المركز"}\nالتاريخ: ${s.date}\nالوقت: ${s.time}`
-      : `New booking request\nBooking ID: ${s.bookingId}\nName: ${s.firstName}\nService: ${s.service}\nLocation: ${isHome ? "Home visit" : "Clinic visit"}\nDate: ${s.date}\nTime: ${s.time}`);
+      ? `طلب حجز جديد\nرقم الحجز: ${s.bookingId}\nالاسم: ${s.firstName}\nالخدمة: ${s.service}\nالتاريخ: ${s.date}\nالوقت: ${s.time}`
+      : `New booking request\nBooking ID: ${s.bookingId}\nName: ${s.firstName}\nService: ${s.service}\nDate: ${s.date}\nTime: ${s.time}`);
 
   const submit = async () => {
     setSubmitting(true); setError("");
@@ -108,14 +84,9 @@ export default function BookingStepper() {
         requestedService: serviceLabel(form.service),
         requestedDate: form.date,
         requestedTime: form.time,
-        location: form.location || undefined,
-        relation: form.relation || undefined,
         ageGroup: form.ageGroup || undefined,
         requestedGender: form.gender || undefined,
         insurance: form.insurance || undefined,
-        urgency: form.urgency || undefined,
-        address: form.address || undefined,
-        arrivalNotes: form.arrivalNotes || undefined,
         message: form.condition || undefined,
         source: "PUBLIC_WEBSITE",
       });
@@ -185,15 +156,6 @@ export default function BookingStepper() {
           aria-hidden="true"
           className="pointer-events-none absolute -start-[10000px] h-px w-px opacity-0"
         />
-        {current === "location" && (
-          <Step title={t("أين تريد تلقّي الرعاية؟", "Where do you want care?")}>
-            <Choices value={form.location} onChange={(v) => set("location", v)} options={[
-              { v: "clinic", label: t("زيارة المركز", "Visit the clinic"), icon: "home" },
-              { v: "home", label: t("زيارة منزلية", "Home visit"), icon: "pin" },
-            ]} />
-          </Step>
-        )}
-
         {current === "service" && (
           <Step title={t("ما الخدمة المطلوبة؟", "Requested service")}>
             <div className="grid gap-2 sm:grid-cols-2">
@@ -204,16 +166,6 @@ export default function BookingStepper() {
                 </button>
               ))}
             </div>
-          </Step>
-        )}
-
-        {current === "relation" && (
-          <Step title={t("لمن هذا الموعد؟", "Who is this for?")}>
-            <Choices value={form.relation} onChange={(v) => set("relation", v)} options={[
-              { v: "myself", label: t("لنفسي", "Myself"), icon: "stethoscope" },
-              { v: "child", label: t("لطفلي", "My child"), icon: "baby" },
-              { v: "family", label: t("فرد من العائلة", "Family member"), icon: "heart-pulse" },
-            ]} />
           </Step>
         )}
 
@@ -239,16 +191,6 @@ export default function BookingStepper() {
                   { v: "yes", label: t("نعم", "Yes") }, { v: "no", label: t("لا", "No") }]} />
               </Field>
             </div>
-          </Step>
-        )}
-
-        {current === "urgency" && (
-          <Step title={t("ما مدى الاستعجال؟", "How urgent is it?")}>
-            <Choices value={form.urgency} onChange={(v) => set("urgency", v)} options={[
-              { v: "today", label: t("اليوم", "Today"), icon: "clock" },
-              { v: "24h", label: t("خلال 24 ساعة", "Within 24 hours"), icon: "clock" },
-              { v: "normal", label: t("موعد عادي", "Normal appointment"), icon: "clock" },
-            ]} />
           </Step>
         )}
 
@@ -285,23 +227,6 @@ export default function BookingStepper() {
           </Step>
         )}
 
-        {current === "home" && (
-          <Step title={t("تفاصيل الزيارة المنزلية", "Home visit details")}>
-            <div className="space-y-3">
-              <button onClick={captureGeo} className="btn-ghost w-full">
-                <Icon name="pin" className="h-5 w-5" /> {form.geo ? t("تم تحديد الموقع ✓", "Location captured ✓") : t("حدّد موقعي الحالي", "Capture my location")}
-              </button>
-              {form.geo && <p className="text-xs text-slate-500">{form.geo}</p>}
-              <Field label={t("العنوان (اختياري)", "Address (optional)")}>
-                <input value={form.address} onChange={(e) => set("address", e.target.value)} className={inputCls} />
-              </Field>
-              <Field label={t("ملاحظات الوصول (اختياري)", "Arrival notes (optional)")}>
-                <textarea value={form.arrivalNotes} onChange={(e) => set("arrivalNotes", e.target.value)} className={`${inputCls} min-h-20`} />
-              </Field>
-            </div>
-          </Step>
-        )}
-
         {current === "condition" && (
           <Step title={t("وصف الحالة (اختياري)", "Condition description (optional)")}>
             <textarea value={form.condition} onChange={(e) => set("condition", e.target.value)} className={`${inputCls} min-h-28`} placeholder={t("اكتب الأعراض أو سبب الزيارة باختصار", "Briefly describe symptoms or reason")} />
@@ -312,12 +237,9 @@ export default function BookingStepper() {
         {current === "review" && (
           <Step title={t("مراجعة وتأكيد", "Review and submit")}>
             <div className="rounded-2xl bg-cloud p-4 text-sm">
-              <Row k={t("المكان", "Location")} v={isHome ? t("زيارة منزلية", "Home visit") : t("زيارة المركز", "Clinic visit")} />
               <Row k={t("الخدمة", "Service")} v={serviceLabel(form.service)} />
-              <Row k={t("لمن", "For")} v={form.relation === "myself" ? t("لنفسي", "Myself") : form.relation === "child" ? t("لطفلي", "My child") : t("فرد من العائلة", "Family member")} />
               <Row k={t("الاسم", "Name")} v={form.fullName} />
               <Row k={t("الهاتف", "Phone")} v={form.phone} />
-              <Row k={t("الاستعجال", "Urgency")} v={form.urgency === "today" ? t("اليوم", "Today") : form.urgency === "24h" ? t("خلال 24 ساعة", "Within 24h") : t("عادي", "Normal")} />
               <Row k={t("الموعد", "Appointment")} v={`${form.date} ${form.time}`} />
             </div>
             <div className="mt-4"><DisclaimerNote compact /></div>
@@ -705,18 +627,6 @@ function Row({ k, v }: { k: string; v: string }) {
     <div className="flex justify-between gap-4 border-b border-slate-100 py-1.5 last:border-0">
       <span className="text-slate-500">{k}</span>
       <span className="font-semibold text-ink">{v}</span>
-    </div>
-  );
-}
-function Choices({ value, onChange, options }: { value: string; onChange: (v: string) => void; options: { v: string; label: string; icon: string }[] }) {
-  return (
-    <div className="grid gap-3 sm:grid-cols-2">
-      {options.map((o) => (
-        <button key={o.v} onClick={() => onChange(o.v)} className={`flex items-center gap-3 rounded-2xl border-2 p-4 text-start font-semibold transition ${value === o.v ? "border-brand-500 bg-brand-50 text-brand-700" : "border-slate-200 hover:border-brand-300"}`}>
-          <Icon name={o.icon} className="h-6 w-6 shrink-0 text-brand-500" />
-          {o.label}
-        </button>
-      ))}
     </div>
   );
 }

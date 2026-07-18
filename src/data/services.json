@@ -64,22 +64,6 @@
     }
   },
   {
-    "id": "home-visits",
-    "icon": "home",
-    "title": {
-      "ar": "استفسار عن خيار زيارة",
-      "en": "Visit Option Enquiry"
-    },
-    "short": {
-      "ar": "فئة توضيحية للاستفسار عن مكان الزيارة.",
-      "en": "An illustrative category for asking about visit location."
-    },
-    "desc": {
-      "ar": "لا يؤكد هذا النموذج توفر زيارة منزلية أو نطاق تغطية. تواصل مباشرة للتحقق من الخيارات.",
-      "en": "This demo does not confirm home-visit availability or coverage. Contact the clinic directly to verify options."
-    }
-  },
-  {
     "id": "lab",
     "icon": "flask",
     "title": {

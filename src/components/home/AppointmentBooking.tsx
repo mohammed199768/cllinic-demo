@@ -17,7 +17,7 @@ function ArrowBtn({ dark = true }: { dark?: boolean }) {
   );
 }
 
-export default function VisitBooking() {
+export default function AppointmentBooking() {
   const { lang, t } = useLang();
   const { containerRef, getAnimStyle } = useStaggeredReveal();
 
