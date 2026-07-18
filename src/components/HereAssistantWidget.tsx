@@ -29,7 +29,7 @@ import Icon from "./Icon";
 const STARTERS: Record<string, BilingualText[]> = {
   "/services": [
     { ar: "شو خدماتكم", en: "What services do you offer?" },
-    { ar: "زيارة منزلية", en: "I need a home visit" },
+    { ar: "استفسار عن خدمة", en: "Service enquiry" },
     { ar: "بدي احجز", en: "Book an appointment" },
   ],
   "/health-journey": [

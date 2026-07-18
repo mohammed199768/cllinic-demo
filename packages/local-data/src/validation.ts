@@ -5,8 +5,8 @@ const iso = z.string().min(10);
 const booking = z.object({
   id: z.string().min(1), publicReference: z.string().min(1), patientId: z.string().optional(), visitId: z.string().optional(),
   fullName: z.string().min(2), phone: z.string().min(6), requestedService: z.string().min(1), requestedDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
-  requestedTime: z.string().regex(/^\d{2}:\d{2}$/), durationMinutes: z.number().int().positive(), location: z.enum(['clinic', 'home']),
-  relation: z.enum(['myself', 'child', 'family']).optional(), ageGroup: z.enum(['child', 'adult', 'senior']).optional(), requestedGender: z.enum(['male', 'female']).optional(), insurance: z.enum(['yes', 'no']).optional(), urgency: z.enum(['today', '24h', 'normal']).optional(), address: z.string().optional(), arrivalNotes: z.string().optional(),
+  requestedTime: z.string().regex(/^\d{2}:\d{2}$/), durationMinutes: z.number().int().positive(),
+  ageGroup: z.enum(['child', 'adult', 'senior']).optional(), requestedGender: z.enum(['male', 'female']).optional(), insurance: z.enum(['yes', 'no']).optional(),
   source: z.enum(['PUBLIC_WEBSITE', 'ADMIN', 'OTHER']), status: z.enum(BOOKING_STATUSES), message: z.string().optional(), internalNotes: z.string().optional(),
   createdAt: iso, updatedAt: iso, arrivedAt: iso.optional(), convertedAt: iso.optional(),
 });
@@ -39,7 +39,7 @@ export const snapshotSchema: z.ZodType<DatabaseSnapshot> = z.object({
 });
 
 export function validateSnapshot(input: unknown): DatabaseSnapshot {
-  const data = snapshotSchema.parse(input);
+  const data = snapshotSchema.parse(sanitizeClinicOnlySnapshot(input));
   const patientIds = new Set(data.patients.map((item) => item.id));
   const visitIds = new Set(data.visits.map((item) => item.id));
   const bookingIds = new Set(data.bookings.map((item) => item.id));
@@ -61,4 +61,52 @@ export function validateSnapshot(input: unknown): DatabaseSnapshot {
   data.observations.forEach((item) => { if (item.visitId && !visitIds.has(item.visitId)) fail(`Observation ${item.id} has an invalid visit.`); });
   data.prescriptions.forEach((item) => { if (!visitIds.has(item.visitId)) fail(`Prescription ${item.id} has an invalid visit.`); });
   return data;
+}
+
+function sanitizeClinicOnlySnapshot(input: unknown): unknown {
+  if (!input || typeof input !== 'object') return input;
+  const source = input as Record<string, unknown>;
+  if (!Array.isArray(source.bookings)) return input;
+  const removedBookingIds = new Set<string>();
+  const sanitizedBookings = source.bookings.flatMap((bookingInput) => {
+    if (!bookingInput || typeof bookingInput !== 'object') return [bookingInput];
+    const entry = bookingInput as Record<string, unknown>;
+    if (entry.location === 'home' || typeof entry.address === 'string' || typeof entry.arrivalNotes === 'string') {
+      if (typeof entry.id === 'string') removedBookingIds.add(entry.id);
+      return [];
+    }
+    const sanitizedBooking = { ...entry };
+    delete sanitizedBooking.location;
+    delete sanitizedBooking.address;
+    delete sanitizedBooking.arrivalNotes;
+    return [sanitizedBooking];
+  });
+  const removedVisitIds = new Set<string>();
+  const sanitizedVisits = Array.isArray(source.visits)
+    ? source.visits.filter((visitInput) => {
+        if (!visitInput || typeof visitInput !== 'object') return true;
+        const entry = visitInput as Record<string, unknown>;
+        const remove = typeof entry.bookingId === 'string' && removedBookingIds.has(entry.bookingId);
+        if (remove && typeof entry.id === 'string') removedVisitIds.add(entry.id);
+        return !remove;
+      })
+    : source.visits;
+  return {
+    ...source,
+    bookings: sanitizedBookings,
+    visits: sanitizedVisits,
+    observations: Array.isArray(source.observations)
+      ? source.observations.filter((item) => !item || typeof item !== 'object' || typeof (item as Record<string, unknown>).visitId !== 'string' || !removedVisitIds.has((item as Record<string, unknown>).visitId as string))
+      : source.observations,
+    prescriptions: Array.isArray(source.prescriptions)
+      ? source.prescriptions.filter((item) => !item || typeof item !== 'object' || typeof (item as Record<string, unknown>).visitId !== 'string' || !removedVisitIds.has((item as Record<string, unknown>).visitId as string))
+      : source.prescriptions,
+    activities: Array.isArray(source.activities)
+      ? source.activities.filter((item) => {
+          if (!item || typeof item !== 'object') return true;
+          const entityId = (item as Record<string, unknown>).entityId;
+          return typeof entityId !== 'string' || (!removedBookingIds.has(entityId) && !removedVisitIds.has(entityId));
+        })
+      : source.activities,
+  };
 }

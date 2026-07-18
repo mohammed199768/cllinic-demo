@@ -4,7 +4,7 @@ import PageHeader from "@/components/PageHeader";
 
 export const metadata: Metadata = {
   title: "احجز الآن | Book Now",
-  description: "احجز موعدك مع عيادتنا عبر نموذج حجز متعدّد الخطوات: زيارة العيادة أو طلب زيارة منزلية في عمّان.",
+  description: "احجز موعدك مع عيادتنا عبر نموذج حجز متعدّد الخطوات للزيارات داخل المركز.",
   alternates: { canonical: "/booking" },
   openGraph: { title: "احجز الآن | Book Now", url: "/booking" },
 };

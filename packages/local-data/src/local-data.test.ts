@@ -87,6 +87,52 @@ describe('ClinicRepository release workflows', () => {
     expect(() => validateSnapshot(broken)).toThrow(/invalid patient/i);
   });
 
+  it('keeps seed and exported booking data clinic-only', async () => {
+    const repo = new ClinicRepository(new MemorySnapshotStore());
+    const exported = JSON.parse(await repo.exportJson()) as typeof demoSeed;
+    for (const snapshot of [demoSeed, exported]) {
+      expect(snapshot.bookings.length).toBeGreaterThan(0);
+      snapshot.bookings.forEach((booking) => {
+        expect(booking).not.toHaveProperty('location');
+        expect(booking).not.toHaveProperty('address');
+        expect(booking).not.toHaveProperty('arrivalNotes');
+      });
+    }
+  });
+
+  it('sanitizes legacy imports so offsite records cannot return', async () => {
+    const legacy = structuredClone(demoSeed) as unknown as typeof demoSeed & {
+      bookings: Array<Record<string, unknown>>;
+      visits: Array<Record<string, unknown>>;
+      observations: Array<Record<string, unknown>>;
+      prescriptions: Array<Record<string, unknown>>;
+      activities: Array<Record<string, unknown>>;
+    };
+    const clinicBooking = { ...legacy.bookings[0]!, id: 'booking-legacy-clinic', publicReference: 'BK-2026-900001', location: 'clinic' };
+    const homeBooking = {
+      ...legacy.bookings[0]!,
+      id: 'booking-legacy-home',
+      publicReference: 'BK-2026-900002',
+      location: 'home',
+      address: 'Demo address',
+      arrivalNotes: 'Demo notes',
+      visitId: 'visit-legacy-home',
+    };
+    legacy.bookings.push(clinicBooking, homeBooking);
+    legacy.visits.push({ ...legacy.visits[0]!, id: 'visit-legacy-home', visitNumber: 'VS-2026-900002', bookingId: 'booking-legacy-home' });
+    legacy.observations.push({ ...legacy.observations[0]!, id: 'observation-legacy-home', visitId: 'visit-legacy-home' });
+    legacy.prescriptions.push({ ...legacy.prescriptions[0]!, id: 'prescription-legacy-home', visitId: 'visit-legacy-home' });
+    legacy.activities.push({ ...legacy.activities[0]!, id: 'activity-legacy-home', entityId: 'booking-legacy-home' });
+
+    const imported = validateSnapshot(legacy);
+    expect(imported.bookings.some((booking) => booking.id === 'booking-legacy-home')).toBe(false);
+    expect(imported.visits.some((visit) => visit.id === 'visit-legacy-home')).toBe(false);
+    expect(imported.observations.some((item) => item.id === 'observation-legacy-home')).toBe(false);
+    expect(imported.prescriptions.some((item) => item.id === 'prescription-legacy-home')).toBe(false);
+    expect(imported.activities.some((item) => item.id === 'activity-legacy-home')).toBe(false);
+    expect(imported.bookings.find((booking) => booking.id === 'booking-legacy-clinic')).not.toHaveProperty('location');
+  });
+
   it('derives dashboard and report values from current stored data', async () => {
     const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Amman' }).format(new Date());
     await clinicRepository.createBooking({ ...bookingInput('Derived Data Patient'), requestedDate: today });

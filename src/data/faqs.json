@@ -11,16 +11,6 @@
   },
   {
     "q": {
-      "ar": "هل تقدّمون زيارات منزلية؟",
-      "en": "Do you offer home visits?"
-    },
-    "a": {
-      "ar": "يعرض النموذج خيارًا توضيحيًا لمكان الزيارة، لكنه لا يؤكد توفر زيارة منزلية. تواصل مباشرة للتحقق.",
-      "en": "The demo shows an illustrative visit-location option but does not confirm home-visit availability. Contact the clinic to verify."
-    }
-  },
-  {
-    "q": {
       "ar": "كيف أتأكد من تغطية التأمين؟",
       "en": "How can I check insurance coverage?"
     },

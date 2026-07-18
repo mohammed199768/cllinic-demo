@@ -4,7 +4,7 @@ import faqs from "@/data/faqs.json";
 
 export const metadata: Metadata = {
   title: "الأسئلة الشائعة | FAQ",
-  description: "إجابات عامة على الأسئلة الشائعة حول خدمات عيادتنا والحجز والتأمين والزيارات المنزلية.",
+  description: "إجابات عامة على الأسئلة الشائعة حول خدمات عيادتنا والحجز والتأمين.",
   alternates: { canonical: "/faq" },
   openGraph: { title: "الأسئلة الشائعة | FAQ", url: "/faq" },
 };

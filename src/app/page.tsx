@@ -5,7 +5,7 @@ import HeroEditorial from "@/components/home/HeroEditorial";
 import CareMosaic from "@/components/home/CareMosaic";
 import HealthCompanionFeature from "@/components/home/HealthCompanionFeature";
 import HomeClinicTour from "@/components/home/HomeClinicTour";
-import VisitBooking from "@/components/home/VisitBooking";
+import AppointmentBooking from "@/components/home/AppointmentBooking";
 import HomeSectionPager from "@/components/home/HomeSectionPager";
 import SiteFooter from "@/components/SiteFooter";
 
@@ -29,7 +29,7 @@ export default function HomePage() {
     <CareMosaic key="mosaic" />,
     <HealthCompanionFeature key="health-companion" />,
     <HomeClinicTour key="tour" />,
-    <VisitBooking key="visit" />,
+    <AppointmentBooking key="visit" />,
     <SiteFooter key="footer" force />,
   ];
 
