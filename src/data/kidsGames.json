@@ -1,0 +1,247 @@
+{
+  "memory": {
+    "pairs": [
+      {
+        "id": "apple",
+        "emoji": "🍎",
+        "label": {
+          "ar": "تفاحة",
+          "en": "Apple"
+        }
+      },
+      {
+        "id": "water",
+        "emoji": "💧",
+        "label": {
+          "ar": "ماء",
+          "en": "Water"
+        }
+      },
+      {
+        "id": "tooth",
+        "emoji": "🪥",
+        "label": {
+          "ar": "فرشاة",
+          "en": "Toothbrush"
+        }
+      },
+      {
+        "id": "sleep",
+        "emoji": "🌙",
+        "label": {
+          "ar": "نوم",
+          "en": "Sleep"
+        }
+      },
+      {
+        "id": "hands",
+        "emoji": "🧼",
+        "label": {
+          "ar": "صابون",
+          "en": "Soap"
+        }
+      },
+      {
+        "id": "carrot",
+        "emoji": "🥕",
+        "label": {
+          "ar": "جزرة",
+          "en": "Carrot"
+        }
+      }
+    ]
+  },
+  "quiz": {
+    "questions": [
+      {
+        "q": {
+          "ar": "كم مرة ننظّف أسناننا في اليوم؟",
+          "en": "How many times do we brush our teeth a day?"
+        },
+        "options": [
+          {
+            "ar": "مرة في الأسبوع",
+            "en": "Once a week"
+          },
+          {
+            "ar": "مرتان يومياً",
+            "en": "Twice a day"
+          },
+          {
+            "ar": "أبداً",
+            "en": "Never"
+          }
+        ],
+        "answer": 1
+      },
+      {
+        "q": {
+          "ar": "ماذا نشرب كثيراً ليبقى جسمنا نشيطاً؟",
+          "en": "What do we drink a lot to stay active?"
+        },
+        "options": [
+          {
+            "ar": "الماء",
+            "en": "Water"
+          },
+          {
+            "ar": "المشروبات الغازية",
+            "en": "Soda"
+          },
+          {
+            "ar": "لا شيء",
+            "en": "Nothing"
+          }
+        ],
+        "answer": 0
+      },
+      {
+        "q": {
+          "ar": "متى ننام لنكبر بصحة؟",
+          "en": "When do we sleep to grow healthy?"
+        },
+        "options": [
+          {
+            "ar": "بعد منتصف الليل",
+            "en": "After midnight"
+          },
+          {
+            "ar": "مبكراً",
+            "en": "Early"
+          },
+          {
+            "ar": "لا ننام",
+            "en": "We don't sleep"
+          }
+        ],
+        "answer": 1
+      },
+      {
+        "q": {
+          "ar": "متى نغسل أيدينا؟",
+          "en": "When do we wash our hands?"
+        },
+        "options": [
+          {
+            "ar": "قبل الأكل",
+            "en": "Before eating"
+          },
+          {
+            "ar": "أبداً",
+            "en": "Never"
+          },
+          {
+            "ar": "مرة بالسنة",
+            "en": "Once a year"
+          }
+        ],
+        "answer": 0
+      },
+      {
+        "q": {
+          "ar": "أي طعام صديق لجسمنا؟",
+          "en": "Which food is our body's friend?"
+        },
+        "options": [
+          {
+            "ar": "الخضار والفواكه",
+            "en": "Fruits and veggies"
+          },
+          {
+            "ar": "الحلوى فقط",
+            "en": "Only candy"
+          },
+          {
+            "ar": "الرقائق فقط",
+            "en": "Only chips"
+          }
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  "habits": {
+    "good": {
+      "ar": "عادات صحية",
+      "en": "Healthy habits"
+    },
+    "bad": {
+      "ar": "عادات غير صحية",
+      "en": "Unhealthy habits"
+    },
+    "items": [
+      {
+        "id": "h1",
+        "emoji": "🥤",
+        "good": false,
+        "label": {
+          "ar": "شرب الغازية كثيراً",
+          "en": "Lots of soda"
+        }
+      },
+      {
+        "id": "h2",
+        "emoji": "🚿",
+        "good": true,
+        "label": {
+          "ar": "الاستحمام",
+          "en": "Bathing"
+        }
+      },
+      {
+        "id": "h3",
+        "emoji": "🍬",
+        "good": false,
+        "label": {
+          "ar": "حلوى كثيرة",
+          "en": "Too much candy"
+        }
+      },
+      {
+        "id": "h4",
+        "emoji": "🏃",
+        "good": true,
+        "label": {
+          "ar": "الحركة واللعب",
+          "en": "Moving and playing"
+        }
+      },
+      {
+        "id": "h5",
+        "emoji": "😴",
+        "good": true,
+        "label": {
+          "ar": "النوم مبكراً",
+          "en": "Sleeping early"
+        }
+      },
+      {
+        "id": "h6",
+        "emoji": "📱",
+        "good": false,
+        "label": {
+          "ar": "شاشة قبل النوم",
+          "en": "Screens before bed"
+        }
+      },
+      {
+        "id": "h7",
+        "emoji": "🥦",
+        "good": true,
+        "label": {
+          "ar": "أكل الخضار",
+          "en": "Eating veggies"
+        }
+      },
+      {
+        "id": "h8",
+        "emoji": "🦷",
+        "good": true,
+        "label": {
+          "ar": "تنظيف الأسنان",
+          "en": "Brushing teeth"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": { "ar": "عيادتنا", "en": "OurClinic" },
+  "tagline": {
+    "ar": "حين تحتاج من يسمعك ويعتني بك، نحن هنا",
+    "en": "When you need someone to listen and care, we are here."
+  },
+  "phone": "0779667168",
+  "phoneE164": "+962779667168",
+  "phoneIntl": "+962779667168",
+  "whatsapp": "962779667168",
+  "email": "mohammed.aldomi68@gmail.com",
+  "emergency": { "ar": "تأكيد التوفر قبل الزيارة", "en": "Confirm availability before visiting" },
+  "address": {
+    "ar": "عمّان، الأردن",
+    "en": "Amman, Jordan"
+  },
+  "maps": "https://www.google.com/maps/search/?api=1&query=Amman%2C%20Jordan",
+  "mapsEmbed": "https://www.google.com/maps?q=Amman%2C%20Jordan&output=embed",
+  "facebook": "",
+  "instagram": "",
+  "city": { "ar": "عمّان", "en": "Amman" },
+  "country": { "ar": "الأردن", "en": "Jordan" },
+  "timezone": "Asia/Amman"
+}

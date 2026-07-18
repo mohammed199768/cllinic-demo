@@ -1,0 +1,146 @@
+[
+  {
+    "id": "general-medicine",
+    "icon": "stethoscope",
+    "title": {
+      "ar": "طلب موعد عام",
+      "en": "General Appointment Request"
+    },
+    "short": {
+      "ar": "فئة توضيحية لطلب موعد في العيادة.",
+      "en": "An illustrative category for requesting a clinic appointment."
+    },
+    "desc": {
+      "ar": "محتوى تجريبي لعرض مسار الحجز. يجب تأكيد نوع الموعد وتوفره مباشرة مع العيادة.",
+      "en": "Demo content showing the booking flow. Confirm the appointment type and availability directly with the clinic."
+    }
+  },
+  {
+    "id": "dentistry",
+    "icon": "smile",
+    "title": {
+      "ar": "استفسار عن العناية بالفم",
+      "en": "Oral Care Enquiry"
+    },
+    "short": {
+      "ar": "فئة استفسار توضيحية ضمن نموذج الخدمات.",
+      "en": "An illustrative enquiry category in the service demo."
+    },
+    "desc": {
+      "ar": "هذه الفئة لأغراض عرض المنتج ولا تؤكد توفر اختصاص أو إجراء. تواصل مباشرة للتحقق.",
+      "en": "This category demonstrates the product and does not confirm a specialty or procedure. Contact the clinic to verify."
+    }
+  },
+  {
+    "id": "children-care",
+    "icon": "baby",
+    "title": {
+      "ar": "استفسار عن موعد طفل",
+      "en": "Child Appointment Enquiry"
+    },
+    "short": {
+      "ar": "فئة توضيحية لطلب موعد لطفل.",
+      "en": "An illustrative category for a child appointment request."
+    },
+    "desc": {
+      "ar": "محتوى تجريبي لشرح الحجز للعائلة. يجب تأكيد نوع الموعد وتوفره مباشرة.",
+      "en": "Demo content explaining family booking. Confirm the appointment type and availability directly."
+    }
+  },
+  {
+    "id": "chronic",
+    "icon": "heart-pulse",
+    "title": {
+      "ar": "طلب متابعة",
+      "en": "Follow-up Request"
+    },
+    "short": {
+      "ar": "فئة توضيحية لطلب موعد متابعة.",
+      "en": "An illustrative category for requesting follow-up."
+    },
+    "desc": {
+      "ar": "لا يقدّم الموقع خطة طبية أو يؤكد خدمة. استخدم الطلب لبدء التواصل حول متابعة مناسبة.",
+      "en": "The site does not provide a medical plan or confirm a service. Use the request to start a conversation about suitable follow-up."
+    }
+  },
+  {
+    "id": "home-visits",
+    "icon": "home",
+    "title": {
+      "ar": "استفسار عن خيار زيارة",
+      "en": "Visit Option Enquiry"
+    },
+    "short": {
+      "ar": "فئة توضيحية للاستفسار عن مكان الزيارة.",
+      "en": "An illustrative category for asking about visit location."
+    },
+    "desc": {
+      "ar": "لا يؤكد هذا النموذج توفر زيارة منزلية أو نطاق تغطية. تواصل مباشرة للتحقق من الخيارات.",
+      "en": "This demo does not confirm home-visit availability or coverage. Contact the clinic directly to verify options."
+    }
+  },
+  {
+    "id": "lab",
+    "icon": "flask",
+    "title": {
+      "ar": "استفسار عن فحص",
+      "en": "Test Enquiry"
+    },
+    "short": {
+      "ar": "فئة توضيحية للاستفسار قبل الحجز.",
+      "en": "An illustrative category for enquiry before booking."
+    },
+    "desc": {
+      "ar": "لا يدّعي الموقع وجود مختبر أو شراكة أو تفسير نتائج. يجب تأكيد أي فحص مباشرة.",
+      "en": "The site does not claim a laboratory, partnership, or result interpretation. Confirm any test directly."
+    }
+  },
+  {
+    "id": "iv-iron",
+    "icon": "droplet",
+    "title": {
+      "ar": "استفسار عن علاج",
+      "en": "Treatment Enquiry"
+    },
+    "short": {
+      "ar": "فئة توضيحية للاستفسار عن علاج.",
+      "en": "An illustrative category for a treatment enquiry."
+    },
+    "desc": {
+      "ar": "لا يوصي الموقع بعلاج ولا يؤكد توفر إجراء. ناقش احتياجك مع مختص مؤهل.",
+      "en": "The site does not recommend treatment or confirm a procedure. Discuss your needs with a qualified professional."
+    }
+  },
+  {
+    "id": "minor-surgery",
+    "icon": "scissors",
+    "title": {
+      "ar": "استفسار عن إجراء",
+      "en": "Procedure Enquiry"
+    },
+    "short": {
+      "ar": "فئة توضيحية لبدء الاستفسار.",
+      "en": "An illustrative category for starting an enquiry."
+    },
+    "desc": {
+      "ar": "لا يؤكد الموقع توفر إجراء أو اختصاص. تواصل مباشرة للحصول على معلومات موثقة.",
+      "en": "The site does not confirm a procedure or specialty. Contact the clinic directly for verified information."
+    }
+  },
+  {
+    "id": "consultation",
+    "icon": "message",
+    "title": {
+      "ar": "استفسار عام",
+      "en": "General Enquiry"
+    },
+    "short": {
+      "ar": "ابدأ التواصل عبر الهاتف أو واتساب.",
+      "en": "Start a conversation by phone or WhatsApp."
+    },
+    "desc": {
+      "ar": "قنوات التواصل مخصصة للاستفسار والحجز، وليست للتشخيص أو الاستشارة الطبية الآلية.",
+      "en": "Contact channels are for enquiries and booking, not diagnosis or automated medical consultation."
+    }
+  }
+]

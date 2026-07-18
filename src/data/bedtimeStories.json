@@ -1,0 +1,242 @@
+[
+  {
+    "slug": "little-water-drop",
+    "color": "#DCF1FF",
+    "emoji": "💧",
+    "title": {
+      "ar": "قطرة الماء الصغيرة",
+      "en": "The Little Water Drop"
+    },
+    "mood": {
+      "ar": "هادئة",
+      "en": "Calm"
+    },
+    "duration": "4 دقائق",
+    "pages": [
+      {
+        "ar": "كانت هناك قطرة ماء صغيرة تحب أن تسافر.",
+        "en": "There was a little water drop who loved to travel.",
+        "emoji": "💧",
+        "bg": "#DCF1FF"
+      },
+      {
+        "ar": "نزلت من الغيمة لتسقي زهرة عطشانة.",
+        "en": "She fell from the cloud to water a thirsty flower.",
+        "emoji": "🌸",
+        "bg": "#E6F7F0"
+      },
+      {
+        "ar": "ثم دخلت كوب طفل صغير ليكبر بصحة.",
+        "en": "Then she entered a child's cup to help him grow healthy.",
+        "emoji": "🥤",
+        "bg": "#FFF2DC"
+      },
+      {
+        "ar": "تذكّر دائماً أن تشرب الماء كل يوم.",
+        "en": "Always remember to drink water every day.",
+        "emoji": "💙",
+        "bg": "#DCF1FF"
+      }
+    ]
+  },
+  {
+    "slug": "brave-toothbrush",
+    "color": "#E9F8E9",
+    "emoji": "🪥",
+    "title": {
+      "ar": "الفرشاة الشجاعة",
+      "en": "The Brave Toothbrush"
+    },
+    "mood": {
+      "ar": "مرحة",
+      "en": "Playful"
+    },
+    "duration": "4 دقائق",
+    "pages": [
+      {
+        "ar": "في الحمّام عاشت فرشاة شجاعة اسمها لمعة.",
+        "en": "In the bathroom lived a brave toothbrush named Shiny.",
+        "emoji": "🪥",
+        "bg": "#E9F8E9"
+      },
+      {
+        "ar": "كل صباح ومساء تحارب جراثيم السكر.",
+        "en": "Every morning and night she fought sugar germs.",
+        "emoji": "✨",
+        "bg": "#FFF2DC"
+      },
+      {
+        "ar": "فصارت الأسنان بيضاء وسعيدة.",
+        "en": "So the teeth became white and happy.",
+        "emoji": "😁",
+        "bg": "#E6F7F0"
+      },
+      {
+        "ar": "نظّف أسنانك مرتين كل يوم.",
+        "en": "Brush your teeth twice every day.",
+        "emoji": "🦷",
+        "bg": "#E9F8E9"
+      }
+    ]
+  },
+  {
+    "slug": "clean-hands",
+    "color": "#FFF0E6",
+    "emoji": "🧼",
+    "title": {
+      "ar": "الأيدي النظيفة",
+      "en": "Clean Hands"
+    },
+    "mood": {
+      "ar": "لطيفة",
+      "en": "Gentle"
+    },
+    "duration": "3 دقائق",
+    "pages": [
+      {
+        "ar": "صابونة صغيرة تحب الرغوة البيضاء.",
+        "en": "A little soap loved its white foam.",
+        "emoji": "🧼",
+        "bg": "#FFF0E6"
+      },
+      {
+        "ar": "قبل الأكل تنادي: اغسلوا أيديكم!",
+        "en": "Before meals it called: wash your hands!",
+        "emoji": "🫧",
+        "bg": "#DCF1FF"
+      },
+      {
+        "ar": "فهربت الجراثيم بعيداً.",
+        "en": "So the germs ran far away.",
+        "emoji": "💨",
+        "bg": "#E6F7F0"
+      },
+      {
+        "ar": "اغسل يديك قبل الأكل وبعد اللعب.",
+        "en": "Wash your hands before eating and after playing.",
+        "emoji": "🤲",
+        "bg": "#FFF0E6"
+      }
+    ]
+  },
+  {
+    "slug": "secret-of-early-sleep",
+    "color": "#ECE6FF",
+    "emoji": "🌙",
+    "title": {
+      "ar": "سرّ النوم المبكر",
+      "en": "The Secret of Early Sleep"
+    },
+    "mood": {
+      "ar": "حالمة",
+      "en": "Dreamy"
+    },
+    "duration": "5 دقائق",
+    "pages": [
+      {
+        "ar": "همس القمر لطفل صغير بسرّ جميل.",
+        "en": "The moon whispered a lovely secret to a child.",
+        "emoji": "🌙",
+        "bg": "#ECE6FF"
+      },
+      {
+        "ar": "حين تنام مبكراً، يكبر جسمك بقوة.",
+        "en": "When you sleep early, your body grows strong.",
+        "emoji": "💪",
+        "bg": "#E6F7F0"
+      },
+      {
+        "ar": "وتستيقظ نشيطاً وسعيداً.",
+        "en": "And you wake up active and happy.",
+        "emoji": "🌅",
+        "bg": "#FFF2DC"
+      },
+      {
+        "ar": "اطفئ الشاشة ونم مبكراً.",
+        "en": "Turn off the screen and sleep early.",
+        "emoji": "😴",
+        "bg": "#ECE6FF"
+      }
+    ]
+  },
+  {
+    "slug": "doctor-friend",
+    "color": "#E3F0FF",
+    "emoji": "🩺",
+    "title": {
+      "ar": "الطبيب الصديق",
+      "en": "The Doctor Friend"
+    },
+    "mood": {
+      "ar": "مطمئنة",
+      "en": "Reassuring"
+    },
+    "duration": "4 دقائق",
+    "pages": [
+      {
+        "ar": "كان هناك طبيب لطيف يبتسم دائماً.",
+        "en": "There was a kind doctor who always smiled.",
+        "emoji": "🩺",
+        "bg": "#E3F0FF"
+      },
+      {
+        "ar": "لا تخف من السماعة، فهي تسمع قلبك.",
+        "en": "Don't fear the stethoscope; it listens to your heart.",
+        "emoji": "❤️",
+        "bg": "#FFE9E3"
+      },
+      {
+        "ar": "الطبيب صديق يساعدك لتبقى بصحة.",
+        "en": "The doctor is a friend who helps you stay healthy.",
+        "emoji": "🤝",
+        "bg": "#E6F7F0"
+      },
+      {
+        "ar": "زيارة الطبيب خطوة شجاعة.",
+        "en": "Visiting the doctor is a brave step.",
+        "emoji": "🌟",
+        "bg": "#E3F0FF"
+      }
+    ]
+  },
+  {
+    "slug": "little-moon-medicine",
+    "color": "#FFF2DC",
+    "emoji": "🌝",
+    "title": {
+      "ar": "دواء القمر الصغير",
+      "en": "The Little Moon Medicine"
+    },
+    "mood": {
+      "ar": "دافئة",
+      "en": "Warm"
+    },
+    "duration": "4 دقائق",
+    "pages": [
+      {
+        "ar": "شعر القمر الصغير بقليل من التعب.",
+        "en": "The little moon felt a bit tired.",
+        "emoji": "🌝",
+        "bg": "#FFF2DC"
+      },
+      {
+        "ar": "فشرب ماءه ونام مبكراً وأكل جيداً.",
+        "en": "So he drank water, slept early, and ate well.",
+        "emoji": "🥗",
+        "bg": "#E6F7F0"
+      },
+      {
+        "ar": "وفي الصباح عاد يلمع من جديد.",
+        "en": "And in the morning he shined again.",
+        "emoji": "✨",
+        "bg": "#ECE6FF"
+      },
+      {
+        "ar": "العناية بنفسك تعيد لك لمعانك.",
+        "en": "Caring for yourself brings back your shine.",
+        "emoji": "💫",
+        "bg": "#FFF2DC"
+      }
+    ]
+  }
+]

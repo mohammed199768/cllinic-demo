@@ -1,0 +1,260 @@
+{
+  "categories": [
+    {
+      "id": "all",
+      "label": {
+        "ar": "الكل",
+        "en": "All"
+      }
+    },
+    {
+      "id": "children",
+      "label": {
+        "ar": "أطفال",
+        "en": "Children"
+      }
+    },
+    {
+      "id": "chronic",
+      "label": {
+        "ar": "مزمن",
+        "en": "Chronic"
+      }
+    },
+    {
+      "id": "vitamins",
+      "label": {
+        "ar": "فيتامينات",
+        "en": "Vitamins"
+      }
+    },
+    {
+      "id": "emergency",
+      "label": {
+        "ar": "طوارئ",
+        "en": "Emergency"
+      }
+    },
+    {
+      "id": "home",
+      "label": {
+        "ar": "زيارات",
+        "en": "Home"
+      }
+    }
+  ],
+  "stories": [
+    {
+      "id": "c1",
+      "category": "children",
+      "title": {
+        "ar": "نصيحة اليوم",
+        "en": "Tip of the Day"
+      },
+      "color": "#FF8FA3"
+    },
+    {
+      "id": "c2",
+      "category": "chronic",
+      "title": {
+        "ar": "السكري",
+        "en": "Diabetes"
+      },
+      "color": "#4FB0F2"
+    },
+    {
+      "id": "c3",
+      "category": "vitamins",
+      "title": {
+        "ar": "الفيتامينات",
+        "en": "Vitamins"
+      },
+      "color": "#9B8CFF"
+    },
+    {
+      "id": "c4",
+      "category": "emergency",
+      "title": {
+        "ar": "طوارئ",
+        "en": "Emergency"
+      },
+      "color": "#FF7A59"
+    },
+    {
+      "id": "c5",
+      "category": "home",
+      "title": {
+        "ar": "زيارة منزلية",
+        "en": "Home Visit"
+      },
+      "color": "#2BC4A0"
+    },
+    {
+      "id": "c6",
+      "category": "children",
+      "title": {
+        "ar": "نوم الطفل",
+        "en": "Child Sleep"
+      },
+      "color": "#FFB35C"
+    }
+  ],
+  "reels": [
+    {
+      "id": "r1",
+      "category": "children",
+      "color": "#FFE3EA",
+      "title": {
+        "ar": "حمّى الطفل بهدوء",
+        "en": "Calm Child Fever"
+      },
+      "body": {
+        "ar": "راقب نشاط طفلك وترطيبه، وقدّم السوائل، وراجعنا إذا استمرت الحرارة أو ظهر خمول شديد.",
+        "en": "Watch your child's activity and hydration, offer fluids, and see us if fever persists or severe lethargy appears."
+      }
+    },
+    {
+      "id": "r2",
+      "category": "chronic",
+      "color": "#E3F0FF",
+      "title": {
+        "ar": "قياس السكر الصحيح",
+        "en": "Measure Sugar Right"
+      },
+      "body": {
+        "ar": "اغسل يديك، سجّل القراءة مع وقتها، ولاحظ علاقتها بالطعام. المتابعة المنتظمة تصنع الفرق.",
+        "en": "Wash hands, log the reading with its time, and note its link to food. Regular follow-up makes the difference."
+      }
+    },
+    {
+      "id": "r3",
+      "category": "vitamins",
+      "color": "#EFEAFF",
+      "title": {
+        "ar": "قبل مكمّلات الحديد",
+        "en": "Before Iron Supplements"
+      },
+      "body": {
+        "ar": "افحص أولاً، فبعض الحالات تحتاج حديداً وريدياً تحت إشراف طبي بدل المكمّلات وحدها.",
+        "en": "Test first; some cases need supervised IV iron instead of supplements alone."
+      }
+    },
+    {
+      "id": "r4",
+      "category": "emergency",
+      "color": "#FFE6DE",
+      "title": {
+        "ar": "ألم الصدر",
+        "en": "Chest Pain"
+      },
+      "body": {
+        "ar": "إذا امتد الألم للذراع أو الفك مع تعرّق أو ضيق نفس، لا تنتظر واطلب المساعدة فوراً.",
+        "en": "If pain spreads to the arm or jaw with sweating or breathlessness, don't wait — get help immediately."
+      }
+    },
+    {
+      "id": "r5",
+      "category": "home",
+      "color": "#E6F7F0",
+      "title": {
+        "ar": "تجهيز للزيارة",
+        "en": "Prepare for the Visit"
+      },
+      "body": {
+        "ar": "جهّز قائمة الأدوية الحالية ومكاناً مضيئاً مريحاً قبل وصول فريق الزيارة المنزلية.",
+        "en": "Prepare a list of current medicines and a bright, comfortable spot before the home visit team arrives."
+      }
+    },
+    {
+      "id": "r6",
+      "category": "vitamins",
+      "color": "#EFEAFF",
+      "title": {
+        "ar": "فيتامين د والتعب",
+        "en": "Vitamin D & Fatigue"
+      },
+      "body": {
+        "ar": "التعب المستمر قد يكون نقص فيتامين د. الفحص يحدد الجرعة المناسبة لك.",
+        "en": "Persistent tiredness may be vitamin D deficiency. A test sets the right dose for you."
+      }
+    },
+    {
+      "id": "r7",
+      "category": "children",
+      "color": "#FFE3EA",
+      "title": {
+        "ar": "ترطيب الطفل",
+        "en": "Hydrate Your Child"
+      },
+      "body": {
+        "ar": "مع الإسهال والقيء، قدّم محلول الجفاف بجرعات صغيرة متكررة وراقب التبوّل.",
+        "en": "With diarrhea and vomiting, give rehydration solution in small frequent sips and watch urination."
+      }
+    },
+    {
+      "id": "r8",
+      "category": "chronic",
+      "color": "#E3F0FF",
+      "title": {
+        "ar": "ضغط تحت السيطرة",
+        "en": "Pressure Under Control"
+      },
+      "body": {
+        "ar": "قِس في وقت هادئ بعد الراحة، وقلّل الملح تدريجياً، والتزم بأدويتك.",
+        "en": "Measure when calm after resting, reduce salt gradually, and stick to your medicines."
+      }
+    },
+    {
+      "id": "r9",
+      "category": "home",
+      "color": "#E6F7F0",
+      "title": {
+        "ar": "رعاية كبار السن",
+        "en": "Senior Care"
+      },
+      "body": {
+        "ar": "تابع الضغط والسكر، وراقب التغذية والترطيب وأي تغيّر في المزاج أو الذاكرة.",
+        "en": "Track pressure and sugar, watch nutrition, hydration, and any change in mood or memory."
+      }
+    },
+    {
+      "id": "r10",
+      "category": "emergency",
+      "color": "#FFE6DE",
+      "title": {
+        "ar": "حروق بسيطة",
+        "en": "Minor Burns"
+      },
+      "body": {
+        "ar": "برّد بماء جارٍ فاتر، لا تضع معجوناً أو زيتاً، وغطِّ بضماد نظيف.",
+        "en": "Cool under cool running water, no toothpaste or oil, and cover with a clean dressing."
+      }
+    },
+    {
+      "id": "r11",
+      "category": "vitamins",
+      "color": "#EFEAFF",
+      "title": {
+        "ar": "مكمّلات بوعي",
+        "en": "Supplements Wisely"
+      },
+      "body": {
+        "ar": "ليست كل المكمّلات مفيدة للجميع؛ الفحص قبل البدء يوفّر المال والجهد.",
+        "en": "Not every supplement suits everyone; testing before starting saves money and effort."
+      }
+    },
+    {
+      "id": "r12",
+      "category": "children",
+      "color": "#FFE3EA",
+      "title": {
+        "ar": "نوم الطفل",
+        "en": "Child Sleep"
+      },
+      "body": {
+        "ar": "ثبّت موعد نوم واستيقاظ، وقلّل الشاشات قبل النوم بساعة، واجعل الغرفة هادئة.",
+        "en": "Keep fixed sleep and wake times, reduce screens an hour before bed, keep the room calm."
+      }
+    }
+  ]
+}

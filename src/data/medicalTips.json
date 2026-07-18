@@ -1,0 +1,762 @@
+[
+  {
+    "id": "t1",
+    "category": "children",
+    "title": {
+      "ar": "حمّى الطفل: متى تقلق؟",
+      "en": "Child Fever: When to Worry?"
+    },
+    "hook": {
+      "ar": "ارتفاع الحرارة عند الأطفال شائع، لكن بعض العلامات تستدعي الانتباه.",
+      "en": "Fever in children is common, but some signs need attention."
+    },
+    "points": [
+      {
+        "ar": "راقب نشاط الطفل وترطيبه أكثر من الرقم على الميزان",
+        "en": "Watch your child's activity and hydration more than the thermometer number"
+      },
+      {
+        "ar": "قدّم السوائل بكثرة والراحة",
+        "en": "Offer plenty of fluids and rest"
+      },
+      {
+        "ar": "لا تعطِ أدوية البالغين للأطفال",
+        "en": "Never give adult medicines to children"
+      }
+    ],
+    "whenToVisit": {
+      "ar": "إذا استمرت الحمّى أكثر من ثلاثة أيام أو ظهر خمول شديد أو صعوبة تنفس.",
+      "en": "If fever lasts more than three days, or there is severe lethargy or breathing difficulty."
+    },
+    "cta": {
+      "ar": "احجز فحصاً لطفلك",
+      "en": "Book a check-up for your child"
+    },
+    "disclaimer": {
+      "ar": "هذا المحتوى تثقيفي عام ولا يُعدّ تشخيصاً أو بديلاً عن مراجعة الطبيب.",
+      "en": "This content is general education and is not a diagnosis or a substitute for seeing a doctor."
+    }
+  },
+  {
+    "id": "t2",
+    "category": "children",
+    "title": {
+      "ar": "الجفاف عند الأطفال",
+      "en": "Dehydration in Children"
+    },
+    "hook": {
+      "ar": "الإسهال والقيء قد يسحبان سوائل الطفل بسرعة.",
+      "en": "Diarrhea and vomiting can drain a child's fluids quickly."
+    },
+    "points": [
+      {
+        "ar": "قدّم محلول معالجة الجفاف بجرعات صغيرة متكررة",
+        "en": "Give oral rehydration solution in small frequent sips"
+      },
+      {
+        "ar": "راقب عدد مرات التبوّل",
+        "en": "Watch how often they urinate"
+      },
+      {
+        "ar": "تجنّب المشروبات الغازية والعصائر المركزة",
+        "en": "Avoid sodas and concentrated juices"
+      }
+    ],
+    "whenToVisit": {
+      "ar": "عند جفاف الفم، قلة الدموع، أو خمول غير معتاد.",
+      "en": "If the mouth is dry, there are few tears, or unusual drowsiness."
+    },
+    "cta": {
+      "ar": "تواصل معنا للاطمئنان",
+      "en": "Contact us to check in"
+    },
+    "disclaimer": {
+      "ar": "هذا المحتوى تثقيفي عام ولا يُعدّ تشخيصاً أو بديلاً عن مراجعة الطبيب.",
+      "en": "This content is general education and is not a diagnosis or a substitute for seeing a doctor."
+    }
+  },
+  {
+    "id": "t3",
+    "category": "children",
+    "title": {
+      "ar": "نوم صحي للأطفال",
+      "en": "Healthy Sleep for Children"
+    },
+    "hook": {
+      "ar": "النوم المنتظم يدعم المناعة والنمو والمزاج.",
+      "en": "Regular sleep supports immunity, growth and mood."
+    },
+    "points": [
+      {
+        "ar": "ثبّت موعد نوم واستيقاظ ثابتاً",
+        "en": "Keep a fixed bedtime and wake time"
+      },
+      {
+        "ar": "قلّل الشاشات قبل النوم بساعة",
+        "en": "Reduce screens one hour before bed"
+      },
+      {
+        "ar": "اجعل الغرفة هادئة ومعتمة",
+        "en": "Keep the room calm and dark"
+      }
+    ],
+    "whenToVisit": {
+      "ar": "إذا كان الطفل يشخر بقوة أو يستيقظ مرهقاً باستمرار.",
+      "en": "If your child snores heavily or wakes up persistently tired."
+    },
+    "cta": {
+      "ar": "اسأل طبيبنا عن نوم طفلك",
+      "en": "Ask our doctor about your child's sleep"
+    },
+    "disclaimer": {
+      "ar": "هذا المحتوى تثقيفي عام ولا يُعدّ تشخيصاً أو بديلاً عن مراجعة الطبيب.",
+      "en": "This content is general education and is not a diagnosis or a substitute for seeing a doctor."
+    }
+  },
+  {
+    "id": "t4",
+    "category": "diabetes",
+    "title": {
+      "ar": "قياس السكر بثقة",
+      "en": "Measuring Blood Sugar with Confidence"
+    },
+    "hook": {
+      "ar": "القياس المنتظم يساعدك على فهم جسمك واتخاذ قرار أفضل.",
+      "en": "Regular measurement helps you understand your body and decide better."
+    },
+    "points": [
+      {
+        "ar": "اغسل يديك قبل القياس",
+        "en": "Wash your hands before measuring"
+      },
+      {
+        "ar": "سجّل القراءات مع وقتها",
+        "en": "Log readings with their time"
+      },
+      {
+        "ar": "لاحظ علاقتها بالطعام والنشاط",
+        "en": "Note their link to food and activity"
+      }
+    ],
+    "whenToVisit": {
+      "ar": "عند تكرار قراءات مرتفعة أو منخفضة جداً أو دوخة متكررة.",
+      "en": "If readings are repeatedly very high/low, or you feel dizzy often."
+    },
+    "cta": {
+      "ar": "احجز متابعة للسكري",
+      "en": "Book a diabetes follow-up"
+    },
+    "disclaimer": {
+      "ar": "هذا المحتوى تثقيفي عام ولا يُعدّ تشخيصاً أو بديلاً عن مراجعة الطبيب.",
+      "en": "This content is general education and is not a diagnosis or a substitute for seeing a doctor."
+    }
+  },
+  {
+    "id": "t5",
+    "category": "diabetes",
+    "title": {
+      "ar": "ضغط الدم تحت السيطرة",
+      "en": "Blood Pressure Under Control"
+    },
+    "hook": {
+      "ar": "الضغط المرتفع غالباً صامت، والمتابعة تحميك.",
+      "en": "High blood pressure is often silent; follow-up protects you."
+    },
+    "points": [
+      {
+        "ar": "قِس في وقت هادئ بعد الراحة",
+        "en": "Measure when calm, after resting"
+      },
+      {
+        "ar": "قلّل الملح تدريجياً",
+        "en": "Reduce salt gradually"
+      },
+      {
+        "ar": "التزم بأدويتك دون انقطاع",
+        "en": "Take your medicines without interruption"
+      }
+    ],
+    "whenToVisit": {
+      "ar": "عند صداع شديد، زغللة، أو قراءات مرتفعة متكررة.",
+      "en": "If you have severe headache, blurred vision, or repeated high readings."
+    },
+    "cta": {
+      "ar": "تابع ضغطك معنا",
+      "en": "Follow your blood pressure with us"
+    },
+    "disclaimer": {
+      "ar": "هذا المحتوى تثقيفي عام ولا يُعدّ تشخيصاً أو بديلاً عن مراجعة الطبيب.",
+      "en": "This content is general education and is not a diagnosis or a substitute for seeing a doctor."
+    }
+  },
+  {
+    "id": "t6",
+    "category": "diabetes",
+    "title": {
+      "ar": "العناية بالقدم لمريض السكري",
+      "en": "Foot Care for Diabetes"
+    },
+    "hook": {
+      "ar": "العناية اليومية بالقدمين تمنع مضاعفات كثيرة.",
+      "en": "Daily foot care prevents many complications."
+    },
+    "points": [
+      {
+        "ar": "افحص قدميك يومياً بحثاً عن جروح",
+        "en": "Check your feet daily for cuts"
+      },
+      {
+        "ar": "جفّف بين الأصابع جيداً",
+        "en": "Dry well between the toes"
+      },
+      {
+        "ar": "ارتدِ حذاءً مريحاً مناسباً",
+        "en": "Wear comfortable, well-fitting shoes"
+      }
+    ],
+    "whenToVisit": {
+      "ar": "عند ظهور جرح لا يلتئم أو احمرار أو خدر.",
+      "en": "If a wound won't heal, or there is redness or numbness."
+    },
+    "cta": {
+      "ar": "اطلب استشارة سريعة",
+      "en": "Request a quick consultation"
+    },
+    "disclaimer": {
+      "ar": "هذا المحتوى تثقيفي عام ولا يُعدّ تشخيصاً أو بديلاً عن مراجعة الطبيب.",
+      "en": "This content is general education and is not a diagnosis or a substitute for seeing a doctor."
+    }
+  },
+  {
+    "id": "t7",
+    "category": "diabetes",
+    "title": {
+      "ar": "حركة بسيطة كل يوم",
+      "en": "A Little Movement Every Day"
+    },
+    "hook": {
+      "ar": "المشي المنتظم يحسّن السكر والضغط والمزاج.",
+      "en": "Regular walking improves sugar, pressure and mood."
+    },
+    "points": [
+      {
+        "ar": "ابدأ بعشر دقائق وزد تدريجياً",
+        "en": "Start with ten minutes and build up"
+      },
+      {
+        "ar": "اختر وقتاً ثابتاً يناسبك",
+        "en": "Pick a fixed time that suits you"
+      },
+      {
+        "ar": "استشر طبيبك قبل المجهود الشديد",
+        "en": "Consult your doctor before intense effort"
+      }
+    ],
+    "whenToVisit": {
+      "ar": "عند الشعور بألم صدر أو ضيق نفس أثناء الحركة.",
+      "en": "If you feel chest pain or shortness of breath during activity."
+    },
+    "cta": {
+      "ar": "خطّط لمتابعتك معنا",
+      "en": "Plan your follow-up with us"
+    },
+    "disclaimer": {
+      "ar": "هذا المحتوى تثقيفي عام ولا يُعدّ تشخيصاً أو بديلاً عن مراجعة الطبيب.",
+      "en": "This content is general education and is not a diagnosis or a substitute for seeing a doctor."
+    }
+  },
+  {
+    "id": "t8",
+    "category": "vitamins",
+    "title": {
+      "ar": "فيتامين د والإرهاق",
+      "en": "Vitamin D and Fatigue"
+    },
+    "hook": {
+      "ar": "نقص فيتامين د شائع وقد يسبب تعباً وآلاماً.",
+      "en": "Vitamin D deficiency is common and can cause tiredness and aches."
+    },
+    "points": [
+      {
+        "ar": "تعرّض لأشعة الشمس باعتدال",
+        "en": "Get moderate sun exposure"
+      },
+      {
+        "ar": "لا تبدأ مكمّلات بجرعات عالية دون فحص",
+        "en": "Don't start high-dose supplements without testing"
+      },
+      {
+        "ar": "النتيجة تحدد الجرعة المناسبة",
+        "en": "The test result guides the right dose"
+      }
+    ],
+    "whenToVisit": {
+      "ar": "عند تعب مستمر أو آلام عظام أو ضعف عام.",
+      "en": "If you have persistent tiredness, bone aches, or general weakness."
+    },
+    "cta": {
+      "ar": "افحص مستوى فيتامين د",
+      "en": "Test your vitamin D level"
+    },
+    "disclaimer": {
+      "ar": "هذا المحتوى تثقيفي عام ولا يُعدّ تشخيصاً أو بديلاً عن مراجعة الطبيب.",
+      "en": "This content is general education and is not a diagnosis or a substitute for seeing a doctor."
+    }
+  },
+  {
+    "id": "t9",
+    "category": "vitamins",
+    "title": {
+      "ar": "نقص الحديد والشحوب",
+      "en": "Iron Deficiency and Paleness"
+    },
+    "hook": {
+      "ar": "نقص الحديد قد يسبب إرهاقاً وشحوباً وضيق نفس.",
+      "en": "Iron deficiency can cause fatigue, paleness and breathlessness."
+    },
+    "points": [
+      {
+        "ar": "الفحص يكشف الحاجة الحقيقية",
+        "en": "A test reveals the real need"
+      },
+      {
+        "ar": "بعض الحالات تحتاج حديداً وريدياً",
+        "en": "Some cases need IV iron"
+      },
+      {
+        "ar": "لا تعتمد على المكمّلات وحدها دون متابعة",
+        "en": "Don't rely on supplements alone without follow-up"
+      }
+    ],
+    "whenToVisit": {
+      "ar": "عند إرهاق شديد أو خفقان أو شحوب واضح.",
+      "en": "If you have severe fatigue, palpitations, or noticeable paleness."
+    },
+    "cta": {
+      "ar": "اسأل عن جلسات الحديد الوريدي",
+      "en": "Ask about IV iron sessions"
+    },
+    "disclaimer": {
+      "ar": "هذا المحتوى تثقيفي عام ولا يُعدّ تشخيصاً أو بديلاً عن مراجعة الطبيب.",
+      "en": "This content is general education and is not a diagnosis or a substitute for seeing a doctor."
+    }
+  },
+  {
+    "id": "t10",
+    "category": "vitamins",
+    "title": {
+      "ar": "مكمّلات بوعي",
+      "en": "Supplements Wisely"
+    },
+    "hook": {
+      "ar": "ليست كل المكمّلات مفيدة للجميع.",
+      "en": "Not every supplement is helpful for everyone."
+    },
+    "points": [
+      {
+        "ar": "الفحص قبل البدء يوفّر المال والجهد",
+        "en": "Testing before starting saves money and effort"
+      },
+      {
+        "ar": "الزيادة قد تضرّ مثل النقص",
+        "en": "Excess can harm just like deficiency"
+      },
+      {
+        "ar": "أخبر طبيبك بكل ما تتناوله",
+        "en": "Tell your doctor everything you take"
+      }
+    ],
+    "whenToVisit": {
+      "ar": "قبل البدء بأي مكمّل بجرعة عالية أو طويلة الأمد.",
+      "en": "Before starting any high-dose or long-term supplement."
+    },
+    "cta": {
+      "ar": "احجز استشارة تغذية صحية",
+      "en": "Book a healthy nutrition consult"
+    },
+    "disclaimer": {
+      "ar": "هذا المحتوى تثقيفي عام ولا يُعدّ تشخيصاً أو بديلاً عن مراجعة الطبيب.",
+      "en": "This content is general education and is not a diagnosis or a substitute for seeing a doctor."
+    }
+  },
+  {
+    "id": "t11",
+    "category": "emergency",
+    "title": {
+      "ar": "ألم الصدر لا يُستهان به",
+      "en": "Chest Pain Is Never Minor"
+    },
+    "hook": {
+      "ar": "بعض آلام الصدر تحتاج تقييماً فورياً.",
+      "en": "Some chest pain needs immediate evaluation."
+    },
+    "points": [
+      {
+        "ar": "لا تنتظر إذا امتد الألم للذراع أو الفك",
+        "en": "Don't wait if pain spreads to arm or jaw"
+      },
+      {
+        "ar": "اجلس واطلب المساعدة فوراً",
+        "en": "Sit down and get help immediately"
+      },
+      {
+        "ar": "الحالات الخطيرة تتطلب طوارئ مباشرة",
+        "en": "Severe cases require emergency services directly"
+      }
+    ],
+    "whenToVisit": {
+      "ar": "فوراً عند ألم صدر شديد مع تعرّق أو ضيق نفس.",
+      "en": "Immediately if severe chest pain comes with sweating or breathlessness."
+    },
+    "cta": {
+      "ar": "اتصل بنا الآن",
+      "en": "Call us now"
+    },
+    "disclaimer": {
+      "ar": "هذا المحتوى تثقيفي عام ولا يُعدّ تشخيصاً أو بديلاً عن مراجعة الطبيب.",
+      "en": "This content is general education and is not a diagnosis or a substitute for seeing a doctor."
+    }
+  },
+  {
+    "id": "t12",
+    "category": "emergency",
+    "title": {
+      "ar": "الحروق البسيطة",
+      "en": "Minor Burns"
+    },
+    "hook": {
+      "ar": "التصرّف السريع الصحيح يقلّل الضرر.",
+      "en": "Quick correct action reduces damage."
+    },
+    "points": [
+      {
+        "ar": "برّد الحرق بماء جارٍ فاتر",
+        "en": "Cool the burn under cool running water"
+      },
+      {
+        "ar": "لا تضع معجون أسنان أو زيوت",
+        "en": "Don't apply toothpaste or oils"
+      },
+      {
+        "ar": "غطِّ بضماد نظيف",
+        "en": "Cover with a clean dressing"
+      }
+    ],
+    "whenToVisit": {
+      "ar": "عند حرق واسع أو عميق أو على الوجه واليدين.",
+      "en": "For wide, deep burns, or burns on the face or hands."
+    },
+    "cta": {
+      "ar": "تواصل معنا للتقييم",
+      "en": "Contact us for assessment"
+    },
+    "disclaimer": {
+      "ar": "هذا المحتوى تثقيفي عام ولا يُعدّ تشخيصاً أو بديلاً عن مراجعة الطبيب.",
+      "en": "This content is general education and is not a diagnosis or a substitute for seeing a doctor."
+    }
+  },
+  {
+    "id": "t13",
+    "category": "emergency",
+    "title": {
+      "ar": "الإغماء المفاجئ",
+      "en": "Sudden Fainting"
+    },
+    "hook": {
+      "ar": "الإغماء قد يكون بسيطاً وقد ينذر بشيء أهم.",
+      "en": "Fainting can be simple or a sign of something bigger."
+    },
+    "points": [
+      {
+        "ar": "أرقِد الشخص وارفع قدميه قليلاً",
+        "en": "Lay the person down and slightly raise the legs"
+      },
+      {
+        "ar": "تأكد من التنفس والوعي",
+        "en": "Check breathing and awareness"
+      },
+      {
+        "ar": "لا تعطه طعاماً أو شراباً وهو غير واعٍ",
+        "en": "Don't give food or drink while not fully awake"
+      }
+    ],
+    "whenToVisit": {
+      "ar": "عند تكرار الإغماء أو بطء استعادة الوعي.",
+      "en": "If fainting repeats or recovery is slow."
+    },
+    "cta": {
+      "ar": "اطلب استشارة عاجلة",
+      "en": "Request an urgent consult"
+    },
+    "disclaimer": {
+      "ar": "هذا المحتوى تثقيفي عام ولا يُعدّ تشخيصاً أو بديلاً عن مراجعة الطبيب.",
+      "en": "This content is general education and is not a diagnosis or a substitute for seeing a doctor."
+    }
+  },
+  {
+    "id": "t14",
+    "category": "emergency",
+    "title": {
+      "ar": "ارتفاع الحرارة الشديد",
+      "en": "Very High Fever"
+    },
+    "hook": {
+      "ar": "الحرارة المرتفعة جداً تحتاج تبريداً ومتابعة.",
+      "en": "Very high fever needs cooling and follow-up."
+    },
+    "points": [
+      {
+        "ar": "اخلع الملابس الثقيلة",
+        "en": "Remove heavy clothing"
+      },
+      {
+        "ar": "رطّب الجسم بكثرة",
+        "en": "Hydrate well"
+      },
+      {
+        "ar": "راقب أي تشنّج أو تخليط",
+        "en": "Watch for any seizure or confusion"
+      }
+    ],
+    "whenToVisit": {
+      "ar": "عند تشنّج، تخليط ذهني، أو حرارة لا تنزل.",
+      "en": "If there is a seizure, confusion, or fever that won't drop."
+    },
+    "cta": {
+      "ar": "اتصل بالمركز فوراً",
+      "en": "Call the center immediately"
+    },
+    "disclaimer": {
+      "ar": "هذا المحتوى تثقيفي عام ولا يُعدّ تشخيصاً أو بديلاً عن مراجعة الطبيب.",
+      "en": "This content is general education and is not a diagnosis or a substitute for seeing a doctor."
+    }
+  },
+  {
+    "id": "t15",
+    "category": "home",
+    "title": {
+      "ar": "متى تختار الزيارة المنزلية؟",
+      "en": "When to Choose a Home Visit"
+    },
+    "hook": {
+      "ar": "الزيارة المنزلية مريحة لمن يصعب عليه الخروج.",
+      "en": "Home visits are ideal for those who can't easily go out."
+    },
+    "points": [
+      {
+        "ar": "مناسبة لكبار السن ومحدودي الحركة",
+        "en": "Great for seniors and those with limited mobility"
+      },
+      {
+        "ar": "جهّز قائمة الأدوية الحالية",
+        "en": "Prepare a list of current medicines"
+      },
+      {
+        "ar": "هيّئ مكاناً مضيئاً ومريحاً",
+        "en": "Arrange a bright, comfortable spot"
+      }
+    ],
+    "whenToVisit": {
+      "ar": "عند صعوبة التنقّل أو الحاجة لمتابعة منزلية منتظمة.",
+      "en": "When travel is hard or regular home follow-up is needed."
+    },
+    "cta": {
+      "ar": "اطلب زيارة منزلية",
+      "en": "Request a home visit"
+    },
+    "disclaimer": {
+      "ar": "هذا المحتوى تثقيفي عام ولا يُعدّ تشخيصاً أو بديلاً عن مراجعة الطبيب.",
+      "en": "This content is general education and is not a diagnosis or a substitute for seeing a doctor."
+    }
+  },
+  {
+    "id": "t16",
+    "category": "home",
+    "title": {
+      "ar": "تجهيز المنزل للمريض",
+      "en": "Preparing Home for a Patient"
+    },
+    "hook": {
+      "ar": "بيئة آمنة تسرّع التعافي وتمنع الحوادث.",
+      "en": "A safe environment speeds recovery and prevents accidents."
+    },
+    "points": [
+      {
+        "ar": "أزل العوائق من الممرات",
+        "en": "Clear obstacles from walkways"
+      },
+      {
+        "ar": "وفّر إضاءة ليلية",
+        "en": "Provide night lighting"
+      },
+      {
+        "ar": "اجعل الأدوية مرتّبة وواضحة",
+        "en": "Keep medicines organized and clearly labeled"
+      }
+    ],
+    "whenToVisit": {
+      "ar": "عند رعاية مريض مزمن أو بعد إجراء طبي.",
+      "en": "When caring for a chronic patient or after a procedure."
+    },
+    "cta": {
+      "ar": "استشرنا حول الرعاية المنزلية",
+      "en": "Ask us about home care"
+    },
+    "disclaimer": {
+      "ar": "هذا المحتوى تثقيفي عام ولا يُعدّ تشخيصاً أو بديلاً عن مراجعة الطبيب.",
+      "en": "This content is general education and is not a diagnosis or a substitute for seeing a doctor."
+    }
+  },
+  {
+    "id": "t17",
+    "category": "home",
+    "title": {
+      "ar": "متابعة كبار السن",
+      "en": "Caring for Seniors"
+    },
+    "hook": {
+      "ar": "المتابعة المنتظمة تحمي صحة كبار السن.",
+      "en": "Regular follow-up protects seniors' health."
+    },
+    "points": [
+      {
+        "ar": "تابع الضغط والسكر بانتظام",
+        "en": "Track blood pressure and sugar regularly"
+      },
+      {
+        "ar": "راقب التغذية والترطيب",
+        "en": "Watch nutrition and hydration"
+      },
+      {
+        "ar": "انتبه لتغيّر المزاج أو الذاكرة",
+        "en": "Notice changes in mood or memory"
+      }
+    ],
+    "whenToVisit": {
+      "ar": "عند فقدان وزن، سقوط متكرر، أو تشوّش جديد.",
+      "en": "If there is weight loss, frequent falls, or new confusion."
+    },
+    "cta": {
+      "ar": "رتّب متابعة منزلية منتظمة",
+      "en": "Arrange regular home follow-up"
+    },
+    "disclaimer": {
+      "ar": "هذا المحتوى تثقيفي عام ولا يُعدّ تشخيصاً أو بديلاً عن مراجعة الطبيب.",
+      "en": "This content is general education and is not a diagnosis or a substitute for seeing a doctor."
+    }
+  },
+  {
+    "id": "t18",
+    "category": "lab",
+    "title": {
+      "ar": "الصيام قبل التحاليل",
+      "en": "Fasting Before Lab Tests"
+    },
+    "hook": {
+      "ar": "بعض الفحوصات تتطلب صياماً لنتائج دقيقة.",
+      "en": "Some tests need fasting for accurate results."
+    },
+    "points": [
+      {
+        "ar": "اسأل عن مدة الصيام المطلوبة",
+        "en": "Ask about the required fasting period"
+      },
+      {
+        "ar": "الماء مسموح عادةً",
+        "en": "Water is usually allowed"
+      },
+      {
+        "ar": "أبلغ المختبر بأدويتك",
+        "en": "Tell the lab about your medicines"
+      }
+    ],
+    "whenToVisit": {
+      "ar": "عند الشك في كيفية التحضير لفحص معيّن.",
+      "en": "If you're unsure how to prepare for a specific test."
+    },
+    "cta": {
+      "ar": "اسأل عن تجهيز فحصك",
+      "en": "Ask how to prepare for your test"
+    },
+    "disclaimer": {
+      "ar": "هذا المحتوى تثقيفي عام ولا يُعدّ تشخيصاً أو بديلاً عن مراجعة الطبيب.",
+      "en": "This content is general education and is not a diagnosis or a substitute for seeing a doctor."
+    }
+  },
+  {
+    "id": "t19",
+    "category": "lab",
+    "title": {
+      "ar": "فهم نتائج التحاليل",
+      "en": "Understanding Your Results"
+    },
+    "hook": {
+      "ar": "الرقم وحده لا يكفي؛ السياق هو الأهم.",
+      "en": "A number alone isn't enough; context matters most."
+    },
+    "points": [
+      {
+        "ar": "اقرأ النتيجة مع طبيبك",
+        "en": "Review the result with your doctor"
+      },
+      {
+        "ar": "احتفظ بنتائجك السابقة للمقارنة",
+        "en": "Keep previous results for comparison"
+      },
+      {
+        "ar": "لا تبدأ علاجاً بناءً على رقم واحد",
+        "en": "Don't start treatment based on one number"
+      }
+    ],
+    "whenToVisit": {
+      "ar": "عند نتيجة غير متوقعة أو خارج المعدّل.",
+      "en": "If a result is unexpected or out of range."
+    },
+    "cta": {
+      "ar": "احجز لتفسير نتائجك",
+      "en": "Book to interpret your results"
+    },
+    "disclaimer": {
+      "ar": "هذا المحتوى تثقيفي عام ولا يُعدّ تشخيصاً أو بديلاً عن مراجعة الطبيب.",
+      "en": "This content is general education and is not a diagnosis or a substitute for seeing a doctor."
+    }
+  },
+  {
+    "id": "t20",
+    "category": "lab",
+    "title": {
+      "ar": "قلق سحب الدم",
+      "en": "Blood Draw Anxiety"
+    },
+    "hook": {
+      "ar": "التوتر من الإبر شائع ويمكن تخفيفه.",
+      "en": "Needle anxiety is common and can be eased."
+    },
+    "points": [
+      {
+        "ar": "تنفّس بهدوء وانظر بعيداً",
+        "en": "Breathe calmly and look away"
+      },
+      {
+        "ar": "اشرب ماءً قبل السحب",
+        "en": "Drink water before the draw"
+      },
+      {
+        "ar": "أخبر الفريق أنك متوتر",
+        "en": "Tell the team you're anxious"
+      }
+    ],
+    "whenToVisit": {
+      "ar": "عند إغماء متكرر أو خوف شديد يمنعك من الفحص.",
+      "en": "If you faint repeatedly or fear strongly prevents testing."
+    },
+    "cta": {
+      "ar": "تواصل معنا بلطف",
+      "en": "Reach out to us gently"
+    },
+    "disclaimer": {
+      "ar": "هذا المحتوى تثقيفي عام ولا يُعدّ تشخيصاً أو بديلاً عن مراجعة الطبيب.",
+      "en": "This content is general education and is not a diagnosis or a substitute for seeing a doctor."
+    }
+  }
+]

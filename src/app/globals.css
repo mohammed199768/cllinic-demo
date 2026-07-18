@@ -1,0 +1,259 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #f6f9fe;
+  --color-brand-50: 238 245 255;
+  --color-brand-100: 217 232 255;
+  --color-brand-200: 184 212 255;
+  --color-brand-300: 139 184 255;
+  --color-brand-400: 90 147 247;
+  --color-brand-500: 52 112 228;
+  --color-brand-600: 32 86 196;
+  --color-brand-700: 28 70 158;
+  --color-brand-800: 27 60 128;
+  --color-brand-900: 26 53 104;
+  --color-brand-950: 15 33 66;
+  --color-ink: 13 26 48;
+  --color-ink-soft: 71 95 147;
+  --color-ink-faint: 105 130 176;
+  --shadow-soft: 0 4px 20px -6px rgba(15,33,66,0.12);
+  --shadow-card: 0 1px 3px rgba(15,33,66,0.05), 0 14px 36px -22px rgba(15,33,66,0.30);
+  --radius-md: 0.625rem;
+  --radius-lg: 0.875rem;
+  --radius-xl: 0.9rem;
+  --radius-2xl: 1.15rem;
+  --radius-3xl: 1.6rem;
+}
+
+.admin-app {
+  --color-brand-50: 240 246 252;
+  --color-brand-100: 220 235 248;
+  --color-brand-200: 188 216 241;
+  --color-brand-300: 141 189 230;
+  --color-brand-400: 90 156 214;
+  --color-brand-500: 54 128 194;
+  --color-brand-600: 37 102 163;
+  --color-brand-700: 31 82 133;
+  --color-brand-800: 29 69 109;
+  --color-brand-900: 28 58 90;
+  --color-brand-950: 18 38 60;
+  --color-ink: 15 31 48;
+  --color-ink-soft: 68 88 110;
+  --color-ink-faint: 123 141 163;
+  --shadow-soft: 0 1px 2px rgba(15,31,48,.04), 0 4px 16px -6px rgba(15,31,48,.07);
+  --shadow-card: 0 1px 2px rgba(15,31,48,.04), 0 4px 16px -6px rgba(15,31,48,.07);
+  --radius-md: 0.625rem;
+  --radius-lg: 0.875rem;
+  --radius-xl: 1.125rem;
+  --radius-2xl: 1.375rem;
+  --radius-3xl: 1.75rem;
+}
+
+* { -webkit-tap-highlight-color: transparent; }
+html {
+  overflow-x: clip;
+  scroll-behavior: smooth;
+}
+
+.public-app {
+  background-color: var(--bg);
+  color: rgb(var(--color-ink));
+  min-height: 100vh;
+  max-width: 100vw;
+  overflow-x: clip;
+  background-image:
+    radial-gradient(900px 520px at 100% -8%, rgba(54,183,210,0.10) 0%, transparent 60%),
+    radial-gradient(1100px 600px at -10% -10%, rgba(52,112,228,0.12) 0%, transparent 55%);
+  background-attachment: fixed;
+}
+
+@media (max-width: 1023px) {
+  .public-app { padding-bottom: calc(6.25rem + env(safe-area-inset-bottom, 0px)); }
+  .health-print .sticky { bottom: calc(6rem + env(safe-area-inset-bottom, 0px)) !important; }
+}
+
+@media (display-mode: standalone) {
+  .public-app { padding-top: env(safe-area-inset-top, 0px); }
+}
+
+@supports (-webkit-touch-callout: none) {
+  html[data-standalone="true"] body { padding-top: env(safe-area-inset-top, 0px); }
+}
+
+main {
+  max-width: 100vw;
+  overflow-x: clip;
+}
+
+html[lang="ar"] .public-app { font-family: var(--font-ar), system-ui, sans-serif; }
+html[lang="en"] .public-app { font-family: var(--font-en), system-ui, sans-serif; }
+
+/* subtle clinical grid texture, very quiet */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(15,33,66,0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15,33,66,0.035) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, black 30%, transparent 75%);
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, black 30%, transparent 75%);
+}
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-content px-5 sm:px-7 lg:px-8; }
+
+  /* ---------- buttons (refined, not bulky) ---------- */
+  .btn {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold leading-none transition-all duration-200 active:scale-[0.985] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2;
+  }
+  .btn-primary {
+    @apply btn bg-brand-600 text-white shadow-soft hover:bg-brand-700 hover:shadow-glow;
+  }
+  .btn-dark {
+    @apply btn bg-navy-900 text-white shadow-soft hover:bg-navy-800;
+  }
+  .btn-emergency {
+    @apply btn text-white shadow-soft;
+    background-image: linear-gradient(135deg, #e11d48 0%, #b21235 100%);
+  }
+  .btn-emergency:hover { filter: brightness(1.05); }
+  .btn-whatsapp { @apply btn bg-[#1faf54] text-white shadow-soft hover:bg-[#179247]; }
+  .btn-ghost {
+    @apply btn border border-navy-200/70 bg-white/70 text-navy-700 backdrop-blur hover:border-brand-300 hover:bg-white hover:text-brand-700;
+  }
+  .btn-lg { @apply px-7 py-3.5 text-base; }
+
+  /* ---------- card variants ---------- */
+  .card {
+    @apply rounded-2xl border border-navy-100/80 bg-white shadow-card;
+  }
+  .card-clinical {
+    @apply rounded-2xl border border-navy-100/70 bg-white/90 shadow-soft backdrop-blur;
+  }
+  .card-elevated {
+    @apply rounded-3xl border border-white bg-white shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-float;
+  }
+  .card-media {
+    @apply overflow-hidden rounded-2xl border border-navy-900/10 bg-navy-950 shadow-card;
+  }
+  .card-emergency {
+    @apply rounded-3xl text-white shadow-emergency;
+    background-image: linear-gradient(120deg, #be123c 0%, #9f1239 55%, #7a0f30 100%);
+  }
+  .card-kids {
+    @apply rounded-[1.75rem] shadow-card transition-transform duration-300 hover:-translate-y-1.5;
+  }
+
+  .public-app .glass { @apply border border-white/70 bg-white/70 backdrop-blur-xl; }
+
+  /* icon container */
+  .icon-pad {
+    @apply flex items-center justify-center rounded-xl bg-brand-50 text-brand-600 ring-1 ring-brand-100;
+  }
+  .icon-pad-cyan { @apply flex items-center justify-center rounded-xl bg-cyan-50 text-cyan-600 ring-1 ring-cyan-100; }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-navy-100 bg-white/80 px-3 py-1 text-xs font-semibold text-navy-600 backdrop-blur;
+  }
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-brand-600;
+  }
+  .eyebrow::before {
+    content: "";
+    @apply h-px w-7 bg-brand-300;
+  }
+  .hr-soft { @apply border-0 border-t border-navy-100/70; }
+}
+
+/* ---------- scroll reveal (transform/opacity only) ---------- */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.22,0.61,0.36,1), transform 0.7s cubic-bezier(0.22,0.61,0.36,1); will-change: opacity, transform; }
+.reveal.is-in { opacity: 1; transform: none; }
+.reveal-delay-1 { transition-delay: 0.08s; }
+.reveal-delay-2 { transition-delay: 0.16s; }
+.reveal-delay-3 { transition-delay: 0.24s; }
+
+/* magnetic / sheen helpers */
+.sheen { position: relative; overflow: hidden; }
+.sheen::after {
+  content: ""; position: absolute; top: 0; left: 0; width: 40%; height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,0.35), transparent);
+  transform: translateX(-160%); transition: transform 0.9s ease;
+}
+.group:hover .sheen::after { transform: translateX(260%); }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+.logo-shine::after {
+  content: "";
+  position: absolute;
+  inset: -35%;
+  background: linear-gradient(120deg, transparent 38%, rgba(255,255,255,0.72) 50%, transparent 62%);
+  opacity: 0;
+  transform: translateX(-145%);
+  animation: logoShine 6.4s ease-in-out infinite;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+.logo-pulse-line path {
+  stroke-dasharray: 128;
+  stroke-dashoffset: 128;
+  animation: logoPulseLine 6.4s ease-in-out infinite;
+}
+
+@keyframes logoShine {
+  0%, 72% { opacity: 0; transform: translateX(-145%); }
+  78% { opacity: 0.55; }
+  88% { opacity: 0; transform: translateX(145%); }
+  100% { opacity: 0; transform: translateX(145%); }
+}
+
+@keyframes logoPulseLine {
+  0%, 68% { stroke-dashoffset: 128; opacity: 0.45; }
+  78%, 88% { stroke-dashoffset: 0; opacity: 0.9; }
+  100% { stroke-dashoffset: 0; opacity: 0.45; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .logo-shine::after,
+  .logo-pulse-line path {
+    animation: none !important;
+  }
+  .logo-pulse-line path {
+    stroke-dashoffset: 0 !important;
+  }
+}
+
+.print-only { display: none; }
+
+@media print {
+  @page { margin: 12mm; size: A4; }
+  html, body { background: #fff !important; color: #0d1a30 !important; }
+  body { background-image: none !important; }
+  body:has(.health-print) > header,
+  body:has(.health-print) > footer,
+  body:has(.health-print) [aria-label="Medical Content"],
+  body:has(.health-print) [aria-label="المحتوى الطبي"],
+  body:has(.health-print) .fixed,
+  .health-print .screen-only,
+  .health-print .no-print { display: none !important; }
+  .health-print .print-only { display: block !important; }
+  .health-print { min-height: auto !important; background: #fff !important; }
+  .health-print .print-area { width: 100%; max-width: none; padding: 0; margin: 0; }
+  .health-print table { width: 100%; border-collapse: collapse; page-break-inside: auto; }
+  .health-print tr { page-break-inside: avoid; page-break-after: auto; }
+  .health-print thead { display: table-header-group; }
+  .health-print section { break-inside: avoid; }
+  main { padding-top: 0 !important; overflow: visible !important; }
+  .app-dock, .app-sheet, .pwa-notice { display: none !important; }
+  a[href]::after { content: none !important; }
+}

@@ -1,0 +1,82 @@
+[
+  {
+    "q": {
+      "ar": "ما هي أوقات عمل المركز؟",
+      "en": "What are the center's working hours?"
+    },
+    "a": {
+      "ar": "هذا الموقع التجريبي لا يعرض ساعات عمل مباشرة. تواصل مع العيادة لتأكيد التوفر قبل الزيارة.",
+      "en": "This demo does not publish live opening hours. Contact the clinic to confirm availability before visiting."
+    }
+  },
+  {
+    "q": {
+      "ar": "هل تقدّمون زيارات منزلية؟",
+      "en": "Do you offer home visits?"
+    },
+    "a": {
+      "ar": "يعرض النموذج خيارًا توضيحيًا لمكان الزيارة، لكنه لا يؤكد توفر زيارة منزلية. تواصل مباشرة للتحقق.",
+      "en": "The demo shows an illustrative visit-location option but does not confirm home-visit availability. Contact the clinic to verify."
+    }
+  },
+  {
+    "q": {
+      "ar": "كيف أتأكد من تغطية التأمين؟",
+      "en": "How can I check insurance coverage?"
+    },
+    "a": {
+      "ar": "أرسل استفسارًا، ثم تحقّق مباشرة مع شركة التأمين والعيادة قبل الاعتماد على أي تغطية.",
+      "en": "Send an enquiry, then verify coverage directly with the insurer and clinic before relying on it."
+    }
+  },
+  {
+    "q": {
+      "ar": "كيف أحجز موعداً؟",
+      "en": "How do I book an appointment?"
+    },
+    "a": {
+      "ar": "يمكنك الحجز عبر نموذج الحجز في الموقع، أو عبر واتساب، أو بالاتصال المباشر بالمركز.",
+      "en": "You can book through the website booking form, via WhatsApp, or by calling the center directly."
+    }
+  },
+  {
+    "q": {
+      "ar": "هل تجرون الفحوصات المخبرية؟",
+      "en": "Do you perform lab tests?"
+    },
+    "a": {
+      "ar": "فئة الفحوصات توضيحية فقط ولا تؤكد توفر مختبر أو شراكة. تواصل مباشرة للتحقق.",
+      "en": "The test category is illustrative and does not confirm a laboratory or partnership. Contact the clinic to verify."
+    }
+  },
+  {
+    "q": {
+      "ar": "هل تتابعون مرضى السكري والضغط؟",
+      "en": "Do you follow up diabetes and blood pressure patients?"
+    },
+    "a": {
+      "ar": "يمكنك إرسال طلب متابعة، لكن الموقع لا يضع خطة طبية أو يؤكد نوع الخدمة.",
+      "en": "You can send a follow-up request, but the site does not create a medical plan or confirm the service type."
+    }
+  },
+  {
+    "q": {
+      "ar": "هل يمكنني الحصول على استشارة عن بُعد؟",
+      "en": "Can I get a remote consultation?"
+    },
+    "a": {
+      "ar": "يمكن استخدام الهاتف أو واتساب للاستفسار والحجز. هذه القنوات في النموذج ليست للتشخيص الآلي.",
+      "en": "Phone or WhatsApp can be used for enquiries and booking. These demo channels do not provide automated diagnosis."
+    }
+  },
+  {
+    "q": {
+      "ar": "ماذا أفعل في الحالات الطارئة الخطيرة؟",
+      "en": "What should I do in a severe emergency?"
+    },
+    "a": {
+      "ar": "في الحالات الخطيرة أو المهددة للحياة، اتصل بخدمات الطوارئ المحلية فوراً.",
+      "en": "In severe life-threatening cases, call local emergency services immediately."
+    }
+  }
+]

@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 2,
+  "seedVersion": "2026.07.17-1",
+  "counters": { "booking": 3, "patient": 2, "visit": 2 },
+  "bookings": [
+    {
+      "id": "booking-demo-1",
+      "publicReference": "BK-2026-000001",
+      "patientId": "patient-demo-1",
+      "visitId": "visit-demo-1",
+      "fullName": "سارة النموذجية",
+      "phone": "0790000001",
+      "requestedService": "استشارة عامة",
+      "requestedDate": "2026-07-17",
+      "requestedTime": "09:00",
+      "durationMinutes": 30,
+      "location": "clinic",
+      "source": "PUBLIC_WEBSITE",
+      "status": "CONVERTED_TO_VISIT",
+      "message": "بيانات تجريبية خيالية.",
+      "createdAt": "2026-07-15T08:00:00.000Z",
+      "updatedAt": "2026-07-17T06:10:00.000Z",
+      "arrivedAt": "2026-07-17T06:00:00.000Z",
+      "convertedAt": "2026-07-17T06:10:00.000Z"
+    },
+    {
+      "id": "booking-demo-2",
+      "publicReference": "BK-2026-000002",
+      "patientId": "patient-demo-2",
+      "fullName": "أحمد التجريبي",
+      "phone": "0790000002",
+      "requestedService": "متابعة دورية",
+      "requestedDate": "2026-07-17",
+      "requestedTime": "11:30",
+      "durationMinutes": 30,
+      "location": "clinic",
+      "source": "ADMIN",
+      "status": "CONFIRMED",
+      "createdAt": "2026-07-16T09:00:00.000Z",
+      "updatedAt": "2026-07-16T09:15:00.000Z"
+    },
+    {
+      "id": "booking-demo-3",
+      "publicReference": "BK-2026-000003",
+      "fullName": "مراجع تجريبي جديد",
+      "phone": "0790000003",
+      "requestedService": "فحص عام",
+      "requestedDate": "2026-07-20",
+      "requestedTime": "10:00",
+      "durationMinutes": 30,
+      "location": "clinic",
+      "source": "PUBLIC_WEBSITE",
+      "status": "NEW",
+      "message": "طلب حجز تجريبي فقط.",
+      "createdAt": "2026-07-17T07:30:00.000Z",
+      "updatedAt": "2026-07-17T07:30:00.000Z"
+    }
+  ],
+  "patients": [
+    {
+      "id": "patient-demo-1",
+      "medicalRecordNumber": "MR-2026-000001",
+      "firstName": "سارة",
+      "lastName": "النموذجية",
+      "fullName": "سارة النموذجية",
+      "phone": "0790000001",
+      "dateOfBirth": "1992-04-12",
+      "gender": "FEMALE",
+      "bloodType": "A+",
+      "address": "عمّان — عنوان تجريبي",
+      "generalNotes": "ملف خيالي لأغراض العرض فقط.",
+      "createdAt": "2026-07-01T08:00:00.000Z",
+      "updatedAt": "2026-07-17T06:10:00.000Z"
+    },
+    {
+      "id": "patient-demo-2",
+      "medicalRecordNumber": "MR-2026-000002",
+      "firstName": "أحمد",
+      "lastName": "التجريبي",
+      "fullName": "أحمد التجريبي",
+      "phone": "0790000002",
+      "dateOfBirth": "1985-09-02",
+      "gender": "MALE",
+      "bloodType": "O+",
+      "createdAt": "2026-06-20T08:00:00.000Z",
+      "updatedAt": "2026-07-16T09:00:00.000Z"
+    }
+  ],
+  "visits": [
+    {
+      "id": "visit-demo-1",
+      "visitNumber": "VS-2026-000001",
+      "patientId": "patient-demo-1",
+      "bookingId": "booking-demo-1",
+      "status": "OPEN",
+      "visitDate": "2026-07-17T06:10:00.000Z",
+      "chiefComplaint": "صداع متقطع — وصف تجريبي",
+      "symptoms": "بيانات سريرية خيالية.",
+      "createdAt": "2026-07-17T06:10:00.000Z",
+      "updatedAt": "2026-07-17T06:10:00.000Z"
+    },
+    {
+      "id": "visit-demo-2",
+      "visitNumber": "VS-2026-000002",
+      "patientId": "patient-demo-2",
+      "status": "COMPLETED",
+      "visitDate": "2026-07-10T08:30:00.000Z",
+      "chiefComplaint": "متابعة دورية تجريبية",
+      "assessment": "حالة مستقرة ضمن البيانات الخيالية.",
+      "treatmentPlan": "الاستمرار على الخطة التجريبية.",
+      "followUpAt": "2026-07-24",
+      "completedAt": "2026-07-10T09:00:00.000Z",
+      "createdAt": "2026-07-10T08:30:00.000Z",
+      "updatedAt": "2026-07-10T09:00:00.000Z"
+    }
+  ],
+  "conditions": [
+    { "id": "condition-demo-1", "patientId": "patient-demo-2", "name": "حالة تجريبية مزمنة", "status": "CONTROLLED", "notes": "للعرض فقط", "createdAt": "2026-06-20T08:10:00.000Z" }
+  ],
+  "allergies": [
+    { "id": "allergy-demo-1", "patientId": "patient-demo-1", "substance": "مادة تجريبية", "reaction": "طفح خفيف", "severity": "خفيفة", "createdAt": "2026-07-01T08:10:00.000Z" }
+  ],
+  "medications": [
+    { "id": "medication-demo-1", "patientId": "patient-demo-2", "name": "دواء تجريبي", "dose": "1", "unit": "قرص", "frequency": "مرة يومياً", "active": true, "createdAt": "2026-06-20T08:20:00.000Z" }
+  ],
+  "observations": [
+    { "id": "observation-demo-1", "patientId": "patient-demo-1", "visitId": "visit-demo-1", "type": "TEMPERATURE", "measuredAt": "2026-07-17T06:15:00.000Z", "valuePrimary": 36.8, "unit": "°C" },
+    { "id": "observation-demo-2", "patientId": "patient-demo-2", "visitId": "visit-demo-2", "type": "BLOOD_PRESSURE", "measuredAt": "2026-07-10T08:35:00.000Z", "valuePrimary": 120, "valueSecondary": 80, "unit": "mmHg" }
+  ],
+  "prescriptions": [
+    { "id": "prescription-demo-1", "visitId": "visit-demo-2", "notes": "وصفة خيالية للعرض فقط.", "items": [{ "id": "rx-item-demo-1", "medicationName": "دواء تجريبي", "dose": "1", "unit": "قرص", "frequency": "مرة يومياً", "duration": "7 أيام", "instructions": "بعد الطعام" }], "updatedAt": "2026-07-10T08:55:00.000Z" }
+  ],
+  "submissions": [
+    { "id": "submission-demo-1", "type": "GENERAL_MESSAGE", "status": "NEW", "name": "زائر تجريبي", "phone": "0790000004", "email": "visitor@example.test", "subject": "استفسار عام", "message": "رسالة خيالية لتجربة شاشة الطلبات.", "source": "contact", "createdAt": "2026-07-17T07:00:00.000Z", "updatedAt": "2026-07-17T07:00:00.000Z" }
+  ],
+  "activities": [
+    { "id": "activity-demo-1", "action": "CREATE", "entityType": "Booking", "entityId": "booking-demo-3", "descriptionAr": "تم إنشاء طلب حجز تجريبي", "descriptionEn": "Demo booking request created", "createdAt": "2026-07-17T07:30:00.000Z" },
+    { "id": "activity-demo-2", "action": "COMPLETE_VISIT", "entityType": "Visit", "entityId": "visit-demo-2", "descriptionAr": "تم إكمال زيارة تجريبية", "descriptionEn": "Demo visit completed", "createdAt": "2026-07-10T09:00:00.000Z" }
+  ]
+}

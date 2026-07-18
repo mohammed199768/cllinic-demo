@@ -1,0 +1,33 @@
+{
+  "generatedAt": "2026-07-10T11:40:33.744Z",
+  "totalFrames": 18,
+  "sourceFrames": 72,
+  "basePath": "/clinic-media/frames",
+  "frames": [
+    "/clinic-media/frames/frame_0001.webp",
+    "/clinic-media/frames/frame_0002.webp",
+    "/clinic-media/frames/frame_0003.webp",
+    "/clinic-media/frames/frame_0004.webp",
+    "/clinic-media/frames/frame_0005.webp",
+    "/clinic-media/frames/frame_0006.webp",
+    "/clinic-media/frames/frame_0007.webp",
+    "/clinic-media/frames/frame_0008.webp",
+    "/clinic-media/frames/frame_0009.webp",
+    "/clinic-media/frames/frame_0010.webp",
+    "/clinic-media/frames/frame_0011.webp",
+    "/clinic-media/frames/frame_0012.webp",
+    "/clinic-media/frames/frame_0013.webp",
+    "/clinic-media/frames/frame_0014.webp",
+    "/clinic-media/frames/frame_0015.webp",
+    "/clinic-media/frames/frame_0016.webp",
+    "/clinic-media/frames/frame_0017.webp",
+    "/clinic-media/frames/frame_0018.webp"
+  ],
+  "walkthrough": {
+    "id": "walkthrough",
+    "startFrame": 1,
+    "endFrame": 18,
+    "scrollHeight": "220vh",
+    "priorityFrameCount": 4
+  }
+}
