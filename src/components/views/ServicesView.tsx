@@ -6,7 +6,6 @@ import PageHeader from "@/components/PageHeader";
 import SectionShell from "@/components/SectionShell";
 import ServiceCard from "@/components/ServiceCard";
 import DisclaimerNote from "@/components/DisclaimerNote";
-import ClinicTour from "@/components/clinic-tour/ClinicTour";
 import Icon from "@/components/Icon";
 import { CLINIC_PHOTOS } from "@/data/clinicMedia";
 import services from "@/data/services.json";
@@ -27,9 +26,6 @@ export default function ServicesView() {
         subEn="Demo content showing the enquiry and booking journey; confirm services and availability directly."
         icon="stethoscope"
       />
-
-      {/* Scroll-controlled clinic tour */}
-      <ClinicTour />
 
       <SectionShell>
         <section className="mb-10 overflow-hidden rounded-3xl border border-brand-100 bg-gradient-to-br from-brand-50 to-cyan-50 p-6 shadow-card sm:p-8">

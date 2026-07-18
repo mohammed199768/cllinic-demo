@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import ServicesView from "@/components/views/ServicesView";
 
 const SERVICES_DESCRIPTION =
-  "Explore demonstration clinic services, general care information, appointment options, and an interactive tour from OurClinic.";
+  "Explore demonstration clinic services, general care information, and appointment options from OurClinic.";
 
 export const metadata: Metadata = {
-  title: "الخدمات الطبية وجولة داخل المركز | Medical Services",
+  title: "الخدمات الطبية | Medical Services",
   description: SERVICES_DESCRIPTION,
   alternates: { canonical: "/services" },
   openGraph: { title: "Medical Services", description: SERVICES_DESCRIPTION, url: "/services" },
