@@ -273,10 +273,12 @@ html[lang="en"] .public-app { font-family: var(--font-en), system-ui, sans-serif
   body:has(.health-print) .pwa-notice,
   body:has(.health-print) .screen-only,
   body:has(.health-print) .no-print,
+  .screen-only,
+  .no-print,
   .health-print .screen-only,
   .health-print .no-print { display: none !important; }
   .health-print .print-only { display: block !important; }
-  body:has(.health-print) .container-x,
+  body:has(.health-print) .container-x:not(.no-print),
   .health-print {
     position: static !important;
     inset: auto !important;
@@ -322,5 +324,9 @@ html[lang="en"] .public-app { font-family: var(--font-en), system-ui, sans-serif
   .health-print section { break-inside: avoid; page-break-inside: avoid; }
   .health-print tr { page-break-after: auto; }
   .health-print thead { display: table-header-group; }
+  .screen-only,
+  .no-print,
+  .health-print .screen-only,
+  .health-print .no-print { display: none !important; }
   a[href]::after { content: none !important; }
 }

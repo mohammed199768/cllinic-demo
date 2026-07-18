@@ -59,6 +59,7 @@ async function setLocaleAndSeed(page: Page, locale: 'ar' | 'en') {
     localStorage.setItem('our-clinic-lang', locale);
     localStorage.setItem('our_clinic_locale', locale);
     localStorage.setItem('ourClinic.healthCompanion.v1', JSON.stringify(store));
+    window.print = () => undefined;
   }, { locale, store: seededStore() });
 }
 
@@ -154,5 +155,64 @@ test('print mode exposes only the full-width document and short reports avoid bl
       expect(pageCount(pdf), `${locale} ${route}`).toBe(1);
       await context.close();
     }
+  }
+});
+
+test('downloads printable resources use intentional A4 pagination without app chrome', async ({ browser }) => {
+  const expectedPageCounts = [1, 2, 1, 2, 1, 1, 1, 1, 1, 1];
+
+  for (const locale of ['en', 'ar'] as const) {
+    const context = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+    const page = await context.newPage();
+    await setLocaleAndSeed(page, locale);
+    await page.goto('/health-journey/downloads');
+
+    const cards = page.locator('.screen-only article');
+    await expect(cards).toHaveCount(expectedPageCounts.length);
+
+    for (let index = 0; index < expectedPageCounts.length; index++) {
+      await page.emulateMedia({ media: 'screen' });
+      await cards.nth(index).locator('button').click();
+      await page.emulateMedia({ media: 'print' });
+
+      const geometry = await page.evaluate(() => {
+        const area = document.querySelector('.print-area');
+        const article = document.querySelector('.print-area article');
+        const areaRect = area?.getBoundingClientRect();
+        const articleRect = article?.getBoundingClientRect();
+        const tables = [...document.querySelectorAll('.print-area table')].map((table) => table.getBoundingClientRect());
+        const visibleChrome = [...document.querySelectorAll('header, footer, nav, .fixed, .sticky, .app-dock, .demo-switcher, .pwa-notice, .screen-only, .no-print')]
+          .filter((node) => {
+            const element = node as HTMLElement;
+            if (area?.contains(element) || element.contains(area)) return false;
+            const style = getComputedStyle(element);
+            const rect = element.getBoundingClientRect();
+            return style.display !== 'none' && style.visibility !== 'hidden' && rect.width > 1 && rect.height > 1;
+          });
+
+        return {
+          dir: document.documentElement.dir,
+          areaWidth: areaRect?.width ?? 0,
+          articleX: articleRect?.x ?? 0,
+          articleRight: articleRect?.right ?? 0,
+          clippedTables: tables.filter((table) => areaRect && (table.x < areaRect.x - 1 || table.right > areaRect.right + 1)).length,
+          visibleChromeCount: visibleChrome.length,
+          overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+        };
+      });
+
+      expect(geometry.dir, `${locale} resource ${index + 1} direction`).toBe(locale === 'ar' ? 'rtl' : 'ltr');
+      expect(geometry.areaWidth, `${locale} resource ${index + 1} print width`).toBeGreaterThan(650);
+      expect(geometry.articleX, `${locale} resource ${index + 1} displaced left`).toBeGreaterThanOrEqual(0);
+      expect(geometry.articleRight, `${locale} resource ${index + 1} displaced right`).toBeLessThanOrEqual(1441);
+      expect(geometry.clippedTables, `${locale} resource ${index + 1} clipped tables`).toBe(0);
+      expect(geometry.visibleChromeCount, `${locale} resource ${index + 1} app chrome`).toBe(0);
+      expect(geometry.overflow, `${locale} resource ${index + 1} overflow`).toBeLessThanOrEqual(1);
+
+      const pdf = await page.pdf({ format: 'A4', printBackground: true });
+      expect(pageCount(pdf), `${locale} resource ${index + 1}`).toBe(expectedPageCounts[index]);
+    }
+
+    await context.close();
   }
 });
