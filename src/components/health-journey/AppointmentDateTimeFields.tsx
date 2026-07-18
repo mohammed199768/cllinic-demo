@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useId, useMemo, useRef, useState } from "react";
+import { useEffect, useId, useMemo, useState } from "react";
 import Icon from "@/components/Icon";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { useLang } from "@/lib/i18n";
 import { dateToLocalDateKey, formatLocalDateKey, formatTime, parseLocalDateKey } from "@/lib/health-format";
 
@@ -32,8 +33,6 @@ export default function AppointmentDateTimeFields({
 function BilingualDatePicker({ value, onChange }: { value: string; onChange: (value: string) => void }) {
   const { lang, t } = useLang();
   const locale = lang === "ar" ? "ar-JO" : "en-GB";
-  const rootRef = useRef<HTMLDivElement>(null);
-  const triggerRef = useRef<HTMLButtonElement>(null);
   const panelId = useId();
   const selected = parseLocalDateKey(value);
   const [open, setOpen] = useState(false);
@@ -44,67 +43,43 @@ function BilingualDatePicker({ value, onChange }: { value: string; onChange: (va
     if (value) setViewDate(parseLocalDateKey(value) ?? startOfDay(new Date()));
   }, [value]);
 
-  useEffect(() => {
-    if (!open) return;
-    const closeOutside = (event: PointerEvent) => {
-      if (!rootRef.current?.contains(event.target as Node)) setOpen(false);
-    };
-    const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setOpen(false);
-        triggerRef.current?.focus();
-      }
-    };
-    document.addEventListener("pointerdown", closeOutside);
-    document.addEventListener("keydown", closeOnEscape);
-    return () => {
-      document.removeEventListener("pointerdown", closeOutside);
-      document.removeEventListener("keydown", closeOnEscape);
-    };
-  }, [open]);
-
   const choose = (day: Date) => {
     onChange(dateToLocalDateKey(day));
     setOpen(false);
-    requestAnimationFrame(() => triggerRef.current?.focus());
   };
   const label = t("تاريخ الموعد (اختياري)", "Appointment date (optional)");
   const displayValue = value ? formatLocalDateKey(value) : t("اختر التاريخ", "Choose date");
 
   return (
-    <div ref={rootRef} className="relative">
+    <div className="relative">
       <label className="text-sm font-semibold text-navy-800" id={`${panelId}-label`}>
         {label}
       </label>
       <p className="mt-1 text-xs leading-relaxed text-navy-500">
         {t("اختر التاريخ من التقويم.", "Choose the date from the calendar.")}
       </p>
-      <button
-        ref={triggerRef}
-        type="button"
-        aria-label={`${label}: ${displayValue}`}
-        aria-expanded={open}
-        aria-controls={panelId}
-        aria-haspopup="dialog"
-        onClick={() => setOpen((current) => !current)}
-        className="mt-2 flex min-h-12 w-full items-center justify-between gap-3 rounded-xl border border-navy-200/80 bg-white px-3.5 py-2.5 text-start text-sm shadow-xs transition hover:border-brand-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
-      >
-        <span className="flex min-w-0 items-center gap-3">
-          <span className="icon-pad h-9 w-9 shrink-0"><Icon name="calendar" className="h-4 w-4" /></span>
-          <span className={value ? "font-semibold text-navy-800" : "text-navy-400"}>
-            {displayValue}
-          </span>
-        </span>
-        <Icon name="chevron" className={`h-4 w-4 shrink-0 text-navy-400 transition-transform ${open ? "-rotate-90" : "rotate-90"}`} />
-      </button>
-
-      {open && (
-        <div
+      <Popover open={open} onOpenChange={setOpen}>
+        <PopoverTrigger asChild>
+          <button
+            type="button"
+            data-overlay-trigger="popover"
+            aria-label={`${label}: ${displayValue}`}
+            aria-controls={panelId}
+            className="mt-2 flex min-h-12 w-full items-center justify-between gap-3 rounded-xl border border-navy-200/80 bg-white px-3.5 py-2.5 text-start text-sm shadow-xs transition hover:border-brand-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
+          >
+            <span className="flex min-w-0 items-center gap-3">
+              <span className="icon-pad h-9 w-9 shrink-0"><Icon name="calendar" className="h-4 w-4" /></span>
+              <span className={value ? "font-semibold text-navy-800" : "text-navy-400"}>
+                {displayValue}
+              </span>
+            </span>
+            <Icon name="chevron" className={`h-4 w-4 shrink-0 text-navy-400 transition-transform ${open ? "-rotate-90" : "rotate-90"}`} />
+          </button>
+        </PopoverTrigger>
+        <PopoverContent
           id={panelId}
-          role="dialog"
-          aria-modal="false"
           aria-labelledby={`${panelId}-label`}
-          className="absolute top-full z-[80] mt-2 w-[min(22rem,calc(100vw-3rem))] rounded-3xl border border-navy-100 bg-white p-4 shadow-float ltr:left-0 rtl:right-0"
+          className="w-[min(22rem,calc(100vw-2rem))] max-h-[calc(100dvh-2rem)] max-w-[calc(100vw-2rem)] overflow-y-auto rounded-3xl border-navy-100 p-4"
         >
           <div className="mb-4 flex items-center justify-between gap-3">
             <button type="button" onClick={() => setViewDate((current) => addMonths(current, -1))} aria-label={t("الشهر السابق", "Previous month")} className="flex h-11 w-11 items-center justify-center rounded-xl border border-navy-200 text-navy-600 transition hover:border-brand-300 hover:text-brand-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400">
@@ -134,9 +109,9 @@ function BilingualDatePicker({ value, onChange }: { value: string; onChange: (va
               </button>
             ) : <span key={`empty-${index}`} className="h-11" aria-hidden="true" />)}
           </div>
-          {value && <button type="button" onClick={() => { onChange(""); setOpen(false); requestAnimationFrame(() => triggerRef.current?.focus()); }} className="btn-ghost mt-3 w-full text-xs">{t("مسح التاريخ", "Clear date")}</button>}
-        </div>
-      )}
+          {value && <button type="button" onClick={() => { onChange(""); setOpen(false); }} className="btn-ghost mt-3 w-full text-xs">{t("مسح التاريخ", "Clear date")}</button>}
+        </PopoverContent>
+      </Popover>
     </div>
   );
 }
