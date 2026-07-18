@@ -105,8 +105,8 @@ export default function DoctorSummaryView() {
       helper={TOOL_GUIDES.report.helper}
     >
       <div className="health-print">
-        <div className="screen-only grid gap-8 lg:grid-cols-[21rem_minmax(0,1fr)]">
-          <aside className="space-y-6">
+        <div className="screen-only grid min-w-0 gap-8 lg:grid-cols-[21rem_minmax(0,1fr)]">
+          <aside className="min-w-0 space-y-6">
             <section className="card-clinical rounded-3xl p-5">
               <h2 className="text-h3 font-bold text-navy-900">
                 {t("اختر ما يظهر", "Choose what to include")}
@@ -192,7 +192,7 @@ export default function DoctorSummaryView() {
             </section>
             <ToolGuidePanel guide={TOOL_GUIDES.report} />
           </aside>
-          <div className="space-y-5">
+          <div className="min-w-0 space-y-5">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
                 <h2 className="text-h3 font-bold text-navy-900">

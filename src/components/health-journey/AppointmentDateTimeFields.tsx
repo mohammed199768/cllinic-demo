@@ -3,7 +3,7 @@
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 import Icon from "@/components/Icon";
 import { useLang } from "@/lib/i18n";
-import { formatDate, formatTime } from "@/lib/health-format";
+import { dateToLocalDateKey, formatLocalDateKey, formatTime, parseLocalDateKey } from "@/lib/health-format";
 
 const WEEKDAYS = {
   ar: ["أحد", "اثنين", "ثلاثاء", "أربعاء", "خميس", "جمعة", "سبت"],
@@ -35,13 +35,13 @@ function BilingualDatePicker({ value, onChange }: { value: string; onChange: (va
   const rootRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const panelId = useId();
-  const selected = parseDate(value);
+  const selected = parseLocalDateKey(value);
   const [open, setOpen] = useState(false);
   const [viewDate, setViewDate] = useState(() => selected ?? startOfDay(new Date()));
   const days = useMemo(() => calendarDays(viewDate), [viewDate]);
 
   useEffect(() => {
-    if (value) setViewDate(parseDate(value) ?? startOfDay(new Date()));
+    if (value) setViewDate(parseLocalDateKey(value) ?? startOfDay(new Date()));
   }, [value]);
 
   useEffect(() => {
@@ -64,15 +64,17 @@ function BilingualDatePicker({ value, onChange }: { value: string; onChange: (va
   }, [open]);
 
   const choose = (day: Date) => {
-    onChange(toDateValue(day));
+    onChange(dateToLocalDateKey(day));
     setOpen(false);
     requestAnimationFrame(() => triggerRef.current?.focus());
   };
+  const label = t("تاريخ الموعد (اختياري)", "Appointment date (optional)");
+  const displayValue = value ? formatLocalDateKey(value) : t("اختر التاريخ", "Choose date");
 
   return (
     <div ref={rootRef} className="relative">
       <label className="text-sm font-semibold text-navy-800" id={`${panelId}-label`}>
-        {t("تاريخ الموعد (اختياري)", "Appointment date (optional)")}
+        {label}
       </label>
       <p className="mt-1 text-xs leading-relaxed text-navy-500">
         {t("اختر التاريخ من التقويم.", "Choose the date from the calendar.")}
@@ -80,7 +82,7 @@ function BilingualDatePicker({ value, onChange }: { value: string; onChange: (va
       <button
         ref={triggerRef}
         type="button"
-        aria-labelledby={`${panelId}-label`}
+        aria-label={`${label}: ${displayValue}`}
         aria-expanded={open}
         aria-controls={panelId}
         aria-haspopup="dialog"
@@ -90,7 +92,7 @@ function BilingualDatePicker({ value, onChange }: { value: string; onChange: (va
         <span className="flex min-w-0 items-center gap-3">
           <span className="icon-pad h-9 w-9 shrink-0"><Icon name="calendar" className="h-4 w-4" /></span>
           <span className={value ? "font-semibold text-navy-800" : "text-navy-400"}>
-            {value ? formatDate(value, lang) : t("اختر التاريخ", "Choose a date")}
+            {displayValue}
           </span>
         </span>
         <Icon name="chevron" className={`h-4 w-4 shrink-0 text-navy-400 transition-transform ${open ? "-rotate-90" : "rotate-90"}`} />
@@ -121,12 +123,12 @@ function BilingualDatePicker({ value, onChange }: { value: string; onChange: (va
           <div className="mt-1 grid grid-cols-7 gap-1">
             {days.map((day, index) => day ? (
               <button
-                key={toDateValue(day)}
+                key={dateToLocalDateKey(day)}
                 type="button"
-                aria-label={formatDate(toDateValue(day), lang)}
-                aria-pressed={value === toDateValue(day)}
+                aria-label={formatLocalDateKey(dateToLocalDateKey(day))}
+                aria-pressed={value === dateToLocalDateKey(day)}
                 onClick={() => choose(day)}
-                className={`flex h-11 min-w-0 items-center justify-center rounded-xl text-sm font-bold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 ${value === toDateValue(day) ? "bg-brand-600 text-white shadow-soft" : sameDate(day, new Date()) ? "bg-brand-50 text-brand-700 ring-1 ring-brand-100" : "text-navy-700 hover:bg-brand-50 hover:text-brand-700"}`}
+                className={`flex h-11 min-w-0 items-center justify-center rounded-xl text-sm font-bold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 ${value === dateToLocalDateKey(day) ? "bg-brand-600 text-white shadow-soft" : sameDate(day, new Date()) ? "bg-brand-50 text-brand-700 ring-1 ring-brand-100" : "text-navy-700 hover:bg-brand-50 hover:text-brand-700"}`}
               >
                 {new Intl.NumberFormat(locale).format(day.getDate())}
               </button>
@@ -178,13 +180,6 @@ function calendarDays(viewDate: Date): Array<Date | null> {
   return result;
 }
 
-function parseDate(value: string): Date | null {
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return null;
-  const [year, month, day] = value.split("-").map(Number);
-  const date = new Date(year, month - 1, day);
-  return Number.isNaN(date.getTime()) || date.getFullYear() !== year || date.getMonth() !== month - 1 || date.getDate() !== day ? null : date;
-}
-
 function parseTime(value: string): { hour: number; minute: number } | null {
   if (!/^([01]\d|2[0-3]):[0-5]\d$/.test(value)) return null;
   const [hour, minute] = value.split(":").map(Number);
@@ -194,4 +189,3 @@ function parseTime(value: string): { hour: number; minute: number } | null {
 function startOfDay(date: Date): Date { return new Date(date.getFullYear(), date.getMonth(), date.getDate()); }
 function addMonths(date: Date, amount: number): Date { return new Date(date.getFullYear(), date.getMonth() + amount, 1); }
 function sameDate(a: Date, b: Date): boolean { return a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate(); }
-function toDateValue(date: Date): string { return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`; }
