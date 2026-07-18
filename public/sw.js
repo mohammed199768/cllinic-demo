@@ -5,7 +5,7 @@ const PAGE_CACHE = `${VERSION}-pages`;
 const MEDIA_CACHE = `${VERSION}-media`;
 const OFFLINE_URL = "/~offline";
 const PRECACHE = [OFFLINE_URL, "/icon.svg", "/pwa/icon-192.png", "/pwa/icon-512.png"];
-const LARGE_MEDIA = /\/clinic-media\/(?:video|frames)\//;
+const LARGE_MEDIA = /\/clinic-media\/video\//;
 let developmentDetected = false;
 
 self.addEventListener("install", (event) => {

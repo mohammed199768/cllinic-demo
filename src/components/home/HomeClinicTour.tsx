@@ -8,8 +8,7 @@ import { useStaggeredReveal } from "./maskHooks";
 
 /**
  * Homepage teaser for the clinic walkthrough. Shows a lightweight poster only —
- * the MP4 is not fetched until the visitor presses play (ClinicVideo lazy). No
- * canvas frame sequence is loaded here; the full scroll tour lives on /services.
+ * the MP4 is not fetched until the visitor presses play (ClinicVideo lazy).
  */
 export default function HomeClinicTour() {
   const { t } = useLang();
@@ -32,7 +31,7 @@ export default function HomeClinicTour() {
               "Watch a brief look at the reception, corridors and treatment areas, then explore the full walk at your own pace."
             )}
           </p>
-          <Link href="/services#clinic-tour" className="btn-primary btn-lg mt-8">
+          <Link href="/services" className="btn-primary btn-lg mt-8">
             {t("استكشف خدمات المركز", "Explore Our Services")}
             <Icon name="arrow" className="h-4 w-4 rtl:rotate-180" />
           </Link>
